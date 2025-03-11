@@ -1,11 +1,18 @@
-[gd_resource type="Resource" script_class="ClassProjects" load_steps=5 format=3 uid="uid://b15s3f68udrwj"]
+[gd_resource type="Resource" script_class="ClassProjects" load_steps=6 format=3 uid="uid://d51ggb5hhp5g"]
 
 [ext_resource type="Script" path="res://Classes/GameInfo.gd" id="1_l0q21"]
 [ext_resource type="Script" path="res://Classes/ClassProjects.gd" id="2_lmxfb"]
 [ext_resource type="Resource" uid="uid://c0uxoop3hb2yu" path="res://GameResources/EchosTale.tres" id="2_pkg1w"]
 [ext_resource type="Resource" uid="uid://dxmm3p1i647wo" path="res://GameResources/Prison.tres" id="3_rgqw5"]
 
+[sub_resource type="Resource" id="Resource_pf0qt"]
+script = ExtResource("1_l0q21")
+title = "Dummy"
+authors = ""
+pck_file = ""
+main_scene = ""
+
 [resource]
 script = ExtResource("2_lmxfb")
 date = "Fall 2024"
-projects = Array[ExtResource("1_l0q21")]([ExtResource("2_pkg1w"), ExtResource("3_rgqw5")])
+projects = Array[ExtResource("1_l0q21")]([ExtResource("2_pkg1w"), ExtResource("3_rgqw5"), SubResource("Resource_pf0qt")])

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bwc51ug0q7ufy"]
 
 [ext_resource type="Script" path="res://Menus/grid_loader.gd" id="1_57xlc"]
-[ext_resource type="Resource" uid="uid://b15s3f68udrwj" path="res://GameResources/2024-Fall.tres" id="2_ormns"]
+[ext_resource type="Resource" uid="uid://d51ggb5hhp5g" path="res://GameResources/2024-Fall.tres" id="2_ormns"]
 [ext_resource type="PackedScene" uid="uid://d0we7vk8ylnle" path="res://Menus/GameButton.tscn" id="2_tiyyy"]
 
 [node name="GridLoader" type="GridContainer"]
