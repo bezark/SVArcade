@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkyl4kmpkq3ee"]
+[gd_scene load_steps=5 format=3 uid="uid://dkyl4kmpkq3ee"]
 
 [ext_resource type="Texture2D" uid="uid://ynl30e6ekt2r" path="res://icon.svg" id="1_1ar51"]
 [ext_resource type="Script" path="res://tester.gd" id="2_f43gi"]
 [ext_resource type="PackedScene" uid="uid://bwc51ug0q7ufy" path="res://Menus/GridLoader.tscn" id="3_u6jho"]
+[ext_resource type="Texture2D" uid="uid://bu0ew181lwtq6" path="res://Screenshot from 2024-08-30 10-56-19.png" id="4_hvon2"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -38,3 +39,8 @@ size_flags_vertical = 3
 position = Vector2(588, 126)
 texture = ExtResource("1_1ar51")
 script = ExtResource("2_f43gi")
+
+[node name="ScreenshotFrom2024-08-3010-56-19" type="Sprite2D" parent="."]
+position = Vector2(1006, 183)
+scale = Vector2(0.0852623, 0.157582)
+texture = ExtResource("4_hvon2")
