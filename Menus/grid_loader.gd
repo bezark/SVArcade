@@ -4,7 +4,7 @@ extends GridContainer
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#grab_focus()
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	for game in class_projects.projects:
 		var new_ui = game_ui.instantiate()
