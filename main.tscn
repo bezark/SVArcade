@@ -35,7 +35,7 @@ size_flags_vertical = 3
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="Icon" type="Sprite2D" parent="Node2D"]
-modulate = Color(0.290196, 0.392157, 1, 1)
+modulate = Color(0.705882, 0.392157, 1, 1)
 position = Vector2(588, 126)
 texture = ExtResource("1_1ar51")
 script = ExtResource("2_f43gi")
