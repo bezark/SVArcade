@@ -5,12 +5,16 @@ extends GridContainer
 func _ready():
 	#grab_focus()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	Input.warp_mouse(Vector2(9999,9999))
 	
+	var old_ui = null
 	for game in class_projects.projects:
-		var new_ui = game_ui.instantiate()
+		var new_ui : GameButton = game_ui.instantiate()
 		new_ui.game_data = game
+		
 		add_child(new_ui)
+		if old_ui:
+			new_ui.focus_previous = old_ui.get_path()
+		old_ui = new_ui
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

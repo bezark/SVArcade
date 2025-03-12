@@ -4,8 +4,7 @@
 [ext_resource type="Resource" uid="uid://c0uxoop3hb2yu" path="res://GameResources/EchosTale.tres" id="2_c0544"]
 [ext_resource type="PackedScene" uid="uid://c4dxafbodbhn7" path="res://Utils/PCKImporter.tscn" id="3_p82ky"]
 
-[node name="GameButton" type="Control"]
-layout_mode = 3
+[node name="GameButton" type="Button"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -24,15 +23,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "GAME"
-
 [node name="PCKImporter" parent="." instance=ExtResource("3_p82ky")]
 
-[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="." to="." method="_on_button_down"]

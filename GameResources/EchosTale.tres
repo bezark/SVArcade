@@ -8,3 +8,4 @@ title = "Echo's Tale"
 authors = ""
 pck_file = "res://PCKs/Echo.pck"
 main_scene = "res://scenes/levels/Opening_Menu.tscn"
+globals = Array[String]([])

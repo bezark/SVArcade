@@ -3,6 +3,7 @@ extends Node
 
 
 func load_game(packed_game_tscn:PackedScene):
+	remove_children()
 	prints("loading", packed_game_tscn)
 	var new_scene = packed_game_tscn.instantiate()
 	#get_tree().root.add_child(new_scene)
@@ -16,10 +17,15 @@ func load_game(packed_game_tscn:PackedScene):
 	if button:
 		button.grab_focus.call_deferred()
 	
+func remove_children():
+	var children = get_children()
+	for dead_child in children:
+		dead_child.queue_free()
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("quit"):
 		get_tree().change_scene_to_file("res://main.tscn")
+		remove_children()
 
 		
 func find_first_button(node: Node) -> Button:
@@ -33,3 +39,11 @@ func find_first_button(node: Node) -> Button:
 			if found:
 				return found
 	return null
+
+
+func load_globals(globals):
+	remove_children()
+	for global in globals:
+		pass
+		var new_global = load(global).instantiate()
+		add_child(new_global)

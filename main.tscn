@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkyl4kmpkq3ee"]
+[gd_scene load_steps=3 format=3 uid="uid://dkyl4kmpkq3ee"]
 
 [ext_resource type="Texture2D" uid="uid://ynl30e6ekt2r" path="res://icon.svg" id="1_1ar51"]
-[ext_resource type="Script" path="res://tester.gd" id="2_f43gi"]
 [ext_resource type="PackedScene" uid="uid://bwc51ug0q7ufy" path="res://Menus/GridLoader.tscn" id="3_u6jho"]
 
 [node name="Control" type="Control"]
@@ -38,4 +37,3 @@ size_flags_vertical = 3
 modulate = Color(0.705882, 0.392157, 1, 1)
 position = Vector2(588, 126)
 texture = ExtResource("1_1ar51")
-script = ExtResource("2_f43gi")
