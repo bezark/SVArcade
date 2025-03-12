@@ -1,17 +1,6 @@
 extends Node
 
 
-# Called when the node enters the scene tree for the first time.
-#func _ready() -> void:
-	#load_pck()
-
-#
-#func _process(delta: float) -> void:
-	#if Input.is_action_just_pressed("jump"):
-		#load_pck("res://PCKs/Prison.pck", "res://Scene/mainLevel.tscn/", null)
-	#elif Input.is_action_just_pressed("attack"):
-		#load_pck("res://PCKs/Echo.pck", "res://scenes/levels/Opening_Menu.tscn", null)
-
 
 func load_pck(path, main, globals):
 	# This could fail if, for example, mod.pck cannot be found.

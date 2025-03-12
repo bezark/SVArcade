@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ClassProjects" load_steps=5 format=3 uid="uid://d51ggb5hhp5g"]
+[gd_resource type="Resource" script_class="ClassProjects" load_steps=6 format=3 uid="uid://d51ggb5hhp5g"]
 
 [ext_resource type="Script" path="res://Classes/GameInfo.gd" id="1_l0q21"]
 [ext_resource type="Script" path="res://Classes/ClassProjects.gd" id="2_lmxfb"]
@@ -13,7 +13,16 @@ pck_file = "res://PCKs/memory.pck"
 main_scene = "res://menu/main_menu.tscn/"
 globals = Array[String](["res://audio_stream_player.tscn"])
 
+[sub_resource type="Resource" id="Resource_jpcpu"]
+resource_name = "Museum"
+script = ExtResource("1_l0q21")
+title = "Museum Story"
+authors = ""
+pck_file = "res://PCKs/museum.pck"
+main_scene = "res://scenes/mian.tscn"
+globals = Array[String](["res://audio_stream_player.tscn"])
+
 [resource]
 script = ExtResource("2_lmxfb")
 date = "Fall 2024"
-projects = Array[ExtResource("1_l0q21")]([ExtResource("2_pkg1w"), SubResource("Resource_pf0qt")])
+projects = Array[ExtResource("1_l0q21")]([ExtResource("2_pkg1w"), SubResource("Resource_pf0qt"), SubResource("Resource_jpcpu")])
