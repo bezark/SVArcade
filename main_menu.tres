@@ -1,12 +1,14 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://crhkeqyi2njhw"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://crhkeqyi2njhw"]
 
 [ext_resource type="FontFile" uid="uid://c87mo5gctc2vq" path="res://Assets/ARCADE_N.TTF" id="1_d1av2"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dba3h"]
+[ext_resource type="StyleBox" uid="uid://drtsxtqb2qqif" path="res://Assets/tres/hoverStyle.tres" id="1_kc8lg"]
+[ext_resource type="StyleBox" uid="uid://bco7qxkdbg37r" path="res://Assets/tres/normalStyle.tres" id="2_fq3kh"]
+[ext_resource type="StyleBox" uid="uid://boppph1otnik3" path="res://Assets/tres/pressedStyle.tres" id="3_jvhj4"]
 
 [resource]
-Button/constants/outline_size = 4
-Button/styles/disabled = SubResource("StyleBoxFlat_dba3h")
+Button/styles/hover = ExtResource("1_kc8lg")
+Button/styles/normal = ExtResource("2_fq3kh")
+Button/styles/pressed = ExtResource("3_jvhj4")
 GridContainer/constants/h_separation = 10
 GridContainer/constants/v_separation = 10
 Label/font_sizes/font_size = 24

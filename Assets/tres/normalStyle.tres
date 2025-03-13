@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://bco7qxkdbg37r"]
+
+[ext_resource type="Texture2D" uid="uid://dof614idmp4gl" path="res://Assets/tres/simpleButton.tres" id="1_kjnuo"]
+
+[resource]
+texture = ExtResource("1_kjnuo")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 2.0
+texture_margin_bottom = 1.0
+region_rect = Rect2(264, 112, 192, 96)

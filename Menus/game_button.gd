@@ -1,4 +1,4 @@
-extends Button
+extends TextureButton
 class_name GameButton
 @export var game_data : GameInfo
 
@@ -18,3 +18,10 @@ func _ready() -> void:
 
 func _on_button_down() -> void:
 	$PCKImporter.load_pck(game_data.pck_file, game_data.main_scene, game_data.globals)
+
+
+
+
+func _on_focus_entered() -> void:
+	$Move.play()
+	

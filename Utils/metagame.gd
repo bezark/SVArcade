@@ -19,7 +19,7 @@ func load_game(packed_game_tscn:PackedScene):
 
 func focus_button(node):
 	#print(button)
-	if node is Button:
+	if node is Button or node is TextureButton:
 		node.grab_click_focus()
 		node.grab_focus()
 
