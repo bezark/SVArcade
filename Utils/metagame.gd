@@ -1,12 +1,12 @@
 extends Node
 var button_timer : Timer 
 func _ready() -> void:
-	button_timer = Timer.new()
-	button_timer.wait_time = 5.0
-	button_timer.connect("timeout", focus_button)
-	add_child(button_timer)
-	button_timer.start()
-	
+	#button_timer = Timer.new()
+	#button_timer.wait_time = 5.0
+	#button_timer.connect("timeout", focus_button)
+	#add_child(button_timer)
+	#button_timer.start()
+	get_tree().node_added.connect(focus_button)
 
 
 func load_game(packed_game_tscn:PackedScene):
@@ -16,19 +16,14 @@ func load_game(packed_game_tscn:PackedScene):
 	#get_tree().root.add_child(new_scene)
 	get_tree().change_scene_to_packed(packed_game_tscn)
 	
-	await get_tree().process_frame
-	#print(get_tree().root.get_children())
-	#focus_button()
-	iterate_tree(get_tree().get_root())
 
-func focus_button():
-	var button = find_first_button(get_tree().get_root())
-	#print(get_tree().get_root())
-	prints("BUTTS", button)
-	if button:
-		button.grab_focus.call_deferred()
-		#button.grab_click_focus.call_deferred()
-	
+func focus_button(node):
+	#print(button)
+	if node is Button:
+		node.grab_click_focus()
+		node.grab_focus()
+
+
 func remove_children():
 	var children = get_children()
 	for dead_child in children:
