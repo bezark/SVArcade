@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://d0we7vk8ylnle"]
+[gd_scene load_steps=6 format=3 uid="uid://d0we7vk8ylnle"]
 
+[ext_resource type="Theme" uid="uid://crhkeqyi2njhw" path="res://main_menu.tres" id="1_8nasi"]
 [ext_resource type="Script" path="res://Menus/game_button.gd" id="1_yl6od"]
 [ext_resource type="Resource" uid="uid://c0uxoop3hb2yu" path="res://GameResources/EchosTale.tres" id="2_c0544"]
 [ext_resource type="PackedScene" uid="uid://c4dxafbodbhn7" path="res://Utils/PCKImporter.tscn" id="3_p82ky"]
+[ext_resource type="Texture2D" uid="uid://ynl30e6ekt2r" path="res://icon.svg" id="5_j11gh"]
 
 [node name="GameButton" type="Button"]
 anchors_preset = 15
@@ -12,10 +14,13 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("1_8nasi")
 script = ExtResource("1_yl6od")
 game_data = ExtResource("2_c0544")
 
-[node name="Thumbnail" type="TextureRect" parent="."]
+[node name="PCKImporter" parent="." instance=ExtResource("3_p82ky")]
+
+[node name="HBox" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,6 +28,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PCKImporter" parent="." instance=ExtResource("3_p82ky")]
+[node name="Thumbnail" type="TextureRect" parent="HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("5_j11gh")
+
+[node name="VBox" type="VBoxContainer" parent="HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="HBox/VBox"]
+layout_mode = 2
+text = "Title"
+autowrap_mode = 3
+
+[node name="Authors" type="Label" parent="HBox/VBox"]
+layout_mode = 2
+text = "Authors"
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]

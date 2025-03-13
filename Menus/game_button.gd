@@ -5,15 +5,13 @@ class_name GameButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	grab_focus()
-	grab_click_focus()
-	
 	
 	
 	if game_data.thumbnail:
-		$Thumbnail.texture = game_data.thumbnail
-	text = game_data.title
-
+		$HBox/Thumbnail.texture = game_data.thumbnail
+	
+	$HBox/VBox/Authors.text = game_data.authors
+	$HBox/VBox/Title.text = game_data.title
 
 
 

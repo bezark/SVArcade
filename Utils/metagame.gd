@@ -32,7 +32,7 @@ func remove_children():
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("quit"):
-		get_tree().change_scene_to_file("res://main.tscn")
+		get_tree().change_scene_to_file("res://main_menu.tscn")
 		remove_children()
 
 		
