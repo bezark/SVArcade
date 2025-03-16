@@ -1,13 +1,9 @@
 extends Node
 var button_timer : Timer 
 func _ready() -> void:
-	#button_timer = Timer.new()
-	#button_timer.wait_time = 5.0
-	#button_timer.connect("timeout", focus_button)
-	#add_child(button_timer)
-	#button_timer.start()
 	get_tree().node_added.connect(focus_button)
 
+var idle_watch = false
 
 func load_game(packed_game_tscn:PackedScene):
 	remove_children()
@@ -15,10 +11,11 @@ func load_game(packed_game_tscn:PackedScene):
 	var new_scene = packed_game_tscn.instantiate()
 	#get_tree().root.add_child(new_scene)
 	get_tree().change_scene_to_packed(packed_game_tscn)
+	idle_watch = true
 	
 
 func focus_button(node):
-	#print(button)
+
 	if node is Button or node is TextureButton:
 		node.grab_click_focus()
 		node.grab_focus()
@@ -27,27 +24,16 @@ func focus_button(node):
 func remove_children():
 	var children = get_children()
 	for dead_child in children:
-		if dead_child != button_timer:
+		if not dead_child.is_in_group("meta"):
 			dead_child.queue_free()
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("quit"):
 		get_tree().change_scene_to_file("res://idle.tscn")
+		idle_watch = false
 		remove_children()
 
 		
-func find_first_button(node: Node) -> Button:
-	print(node.get_children())
-	if node is Button:
-		return node
-	for child in node.get_children():
-		# Ensure that the child is actually a Node (in case of non-Node items)
-		if child is Node:
-			var found = find_first_button(child)
-			if found:
-				return found
-	return null
-
 
 func load_globals(globals):
 	remove_children()
@@ -57,16 +43,34 @@ func load_globals(globals):
 		add_child(new_global)
 
 
+func _input(event: InputEvent) -> void:
+	if idle_watch:
+		$IdleTimer.start()
+	hide_continue()
 
-func iterate_tree(node):
-	# Process the current node
-	print("Node: ", node.name)
+func hide_continue():
+	$StillPlaying.hide()
+	seconds_left = 10
+	$StillPlaying/Timer.stop()
 	
-	# Iterate over each child and call iterate_tree recursively
-	for child in node.get_children():
-		iterate_tree(child)
+var seconds_left = 10
 
-
+##Start countdown
 func _on_timer_timeout() -> void:
-	iterate_tree(get_tree().get_root())
-	print('goin')
+	$StillPlaying/PanelContainer/CenterContainer/VBoxContainer/Countdown.text = str(seconds_left)
+	$AnimationPlayer.play("stillplaying?")
+	$StillPlaying.show()
+
+
+func _on_seconds_timer_timeout() -> void:
+	seconds_left -= 1
+	$StillPlaying/PanelContainer/CenterContainer/VBoxContainer/Countdown.text = str(seconds_left)
+	if seconds_left <= 0:
+		hide_continue()
+		get_tree().change_scene_to_file("res://idle.tscn")
+		remove_children()
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "stillplaying?":
+		$StillPlaying/Timer.start()

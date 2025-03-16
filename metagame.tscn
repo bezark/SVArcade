@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://c0p1qvhxtt8c4"]
-
-[ext_resource type="Script" path="res://Utils/metagame.gd" id="1_jcunn"]
-
-[node name="Metagame" type="Node"]
-script = ExtResource("1_jcunn")

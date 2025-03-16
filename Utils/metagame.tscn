@@ -1,6 +1,115 @@
-[gd_scene load_steps=2 format=3 uid="uid://bpwppwu4wfqlt"]
+[gd_scene load_steps=9 format=3 uid="uid://bpwppwu4wfqlt"]
 
 [ext_resource type="Script" path="res://Utils/metagame.gd" id="1_jcunn"]
+[ext_resource type="Theme" uid="uid://crhkeqyi2njhw" path="res://main_menu.tres" id="2_lf1dc"]
 
-[node name="Metagame" type="Node"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_er233"]
+bg_color = Color(0.211765, 0.211765, 0.211765, 0.729412)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qrh4q"]
+font_size = 24
+shadow_size = 8
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_b6ndy"]
+font_size = 64
+font_color = Color(1, 0.74902, 0, 1)
+outline_size = 5
+shadow_size = 14
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_63sp1"]
+resource_name = "stillplaying?"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StillPlaying/PanelContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4rcvr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StillPlaying/PanelContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w3dsx"]
+_data = {
+"RESET": SubResource("Animation_4rcvr"),
+"stillplaying?": SubResource("Animation_63sp1")
+}
+
+[node name="Metagame" type="Node" groups=["meta"]]
 script = ExtResource("1_jcunn")
+
+[node name="IdleTimer" type="Timer" parent="." groups=["meta"]]
+wait_time = 15.0
+one_shot = true
+
+[node name="StillPlaying" type="CanvasLayer" parent="." groups=["meta"]]
+visible = false
+
+[node name="PanelContainer" type="PanelContainer" parent="StillPlaying" groups=["meta"]]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_lf1dc")
+theme_override_styles/panel = SubResource("StyleBoxFlat_er233")
+
+[node name="CenterContainer" type="CenterContainer" parent="StillPlaying/PanelContainer" groups=["meta"]]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StillPlaying/PanelContainer/CenterContainer" groups=["meta"]]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Continue" type="Label" parent="StillPlaying/PanelContainer/CenterContainer/VBoxContainer" groups=["meta"]]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "CONTINUE?"
+label_settings = SubResource("LabelSettings_qrh4q")
+horizontal_alignment = 1
+
+[node name="Countdown" type="Label" parent="StillPlaying/PanelContainer/CenterContainer/VBoxContainer" groups=["meta"]]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "10	"
+label_settings = SubResource("LabelSettings_b6ndy")
+horizontal_alignment = 1
+
+[node name="Press" type="Label" parent="StillPlaying/PanelContainer/CenterContainer/VBoxContainer" groups=["meta"]]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Press any button..."
+label_settings = SubResource("LabelSettings_qrh4q")
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="StillPlaying" groups=["meta"]]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." groups=["meta"]]
+libraries = {
+"": SubResource("AnimationLibrary_w3dsx")
+}
+
+[connection signal="timeout" from="IdleTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="StillPlaying/Timer" to="." method="_on_seconds_timer_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

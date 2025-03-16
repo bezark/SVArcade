@@ -60,11 +60,13 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Title" type="Label" parent="HBox/VBox"]
+custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 text = "Title"
 autowrap_mode = 3
 
 [node name="Authors" type="Label" parent="HBox/VBox"]
+visible = false
 layout_mode = 2
 text = "Authors"
 

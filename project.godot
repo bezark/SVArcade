@@ -21,7 +21,6 @@ Metagame="*res://Utils/metagame.tscn"
 
 [display]
 
-window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [input]
