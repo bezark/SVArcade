@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=4 uid="uid://djat753obqbov"]
+[gd_scene load_steps=20 format=4 uid="uid://djat753obqbov"]
 
 [ext_resource type="Script" path="res://idle.gd" id="1_injbt"]
 [ext_resource type="FontFile" uid="uid://c87mo5gctc2vq" path="res://Assets/ARCADE_N.TTF" id="1_qhy0e"]
 [ext_resource type="FontFile" uid="uid://bgn1ybfv3o2m0" path="res://Assets/HYPERCARD/HYPERCARD/game/assets/ChicagoFLF.ttf" id="2_uvkfk"]
 [ext_resource type="Material" uid="uid://c7ontwn5cnvmj" path="res://Assets/IDLE/blue_wireframe.tres" id="3_ob2g1"]
+[ext_resource type="Script" path="res://spinner.gd" id="5_8pi51"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bpyb6"]
 sky_top_color = Color(0.557576, 0.0924851, 1, 1)
@@ -184,6 +185,7 @@ surface_material_override/0 = ExtResource("3_ob2g1")
 transform = Transform3D(1, 0, 0, 0, 0.912385, 0.409334, 0, -0.409334, 0.912385, 0, 0.687383, -0.703333)
 mesh = SubResource("SphereMesh_0jjim")
 surface_material_override/0 = ExtResource("3_ob2g1")
+script = ExtResource("5_8pi51")
 
 [node name="Path3D" type="Path3D" parent="Scenery"]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.92001, -0.672703)
