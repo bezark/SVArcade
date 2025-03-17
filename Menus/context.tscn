@@ -35,9 +35,11 @@ theme_override_constants/separation = 20
 
 [node name="Title" type="Label" parent="PanelContainer/CenterContainer/VBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 label_settings = SubResource("LabelSettings_twsnr")
 horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="BY" type="Label" parent="PanelContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
