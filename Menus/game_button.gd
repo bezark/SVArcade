@@ -15,9 +15,12 @@ func _ready() -> void:
 
 
 
-
+const CONTEXT = preload("res://Menus/context.tscn")
 func _on_button_down() -> void:
-	$PCKImporter.load_pck(game_data.pck_file, game_data.main_scene, game_data.globals)
+	var new_context = CONTEXT.instantiate()
+	new_context.game_data = game_data
+	add_child(new_context)
+	
 
 
 

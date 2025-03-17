@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://buxpeccd7mhy8"]
+
+[ext_resource type="Theme" uid="uid://crhkeqyi2njhw" path="res://main_menu.tres" id="1_7tij1"]
+[ext_resource type="Script" path="res://Menus/context.gd" id="1_lvb73"]
+[ext_resource type="PackedScene" uid="uid://c4dxafbodbhn7" path="res://Utils/PCKImporter.tscn" id="3_hslxy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_juai4"]
+bg_color = Color(0.0352941, 0.0392157, 0.0784314, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_twsnr"]
+font_size = 64
+
+[node name="Context" type="CanvasLayer"]
+script = ExtResource("1_lvb73")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_7tij1")
+theme_override_styles/panel = SubResource("StyleBoxFlat_juai4")
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="PanelContainer/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = SubResource("LabelSettings_twsnr")
+horizontal_alignment = 1
+
+[node name="BY" type="Label" parent="PanelContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "BY"
+horizontal_alignment = 1
+
+[node name="Authors" type="Label" parent="PanelContainer/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "good students"
+horizontal_alignment = 1
+
+[node name="Context" type="Label" parent="PanelContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+text = "This game was originally designed for a mouse and keyboard. Use the Thumbsticks to move, A to jump and B to interact. Press + to return to the main menu."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Play" type="Button" parent="PanelContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "PLAY"
+
+[node name="PCKImporter" parent="." instance=ExtResource("3_hslxy")]
+
+[connection signal="button_down" from="PanelContainer/CenterContainer/VBoxContainer/Play" to="." method="_on_play_button_down"]
