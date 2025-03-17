@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_ptg17")
 title = "Echo's Tale"
-authors = "Kid"
+authors = "Daniel Tiburzi, Qiaofeng Zhang & Yuanqi Zhang"
 pck_file = "res://PCKs/Echo.pck"
 main_scene = "res://scenes/levels/Opening_Menu.tscn"
 globals = Array[String]([])
