@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://d0we7vk8ylnle"]
 
-[ext_resource type="Theme" uid="uid://crhkeqyi2njhw" path="res://main_menu.tres" id="1_8nasi"]
+[ext_resource type="Theme" uid="uid://crhkeqyi2njhw" path="res://Menus/main_menu.tres" id="1_8nasi"]
 [ext_resource type="Script" path="res://Menus/game_button.gd" id="1_yl6od"]
 [ext_resource type="Texture2D" uid="uid://c8345xp0stiux" path="res://Assets/game ui 1-bit.png" id="2_7i3ht"]
 [ext_resource type="Resource" uid="uid://c0uxoop3hb2yu" path="res://GameResources/EchosTale.tres" id="2_c0544"]

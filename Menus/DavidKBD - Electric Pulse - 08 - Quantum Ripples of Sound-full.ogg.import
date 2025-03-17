@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bqffxijjv5d5a"
+path="res://.godot/imported/DavidKBD - Electric Pulse - 08 - Quantum Ripples of Sound-full.ogg-7dceae51f334536235d08263eeed312b.oggvorbisstr"
+
+[deps]
+
+source_file="res://Menus/DavidKBD - Electric Pulse - 08 - Quantum Ripples of Sound-full.ogg"
+dest_files=["res://.godot/imported/DavidKBD - Electric Pulse - 08 - Quantum Ripples of Sound-full.ogg-7dceae51f334536235d08263eeed312b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

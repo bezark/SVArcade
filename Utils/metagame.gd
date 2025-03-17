@@ -1,9 +1,12 @@
 extends Node
 var button_timer : Timer 
+var idle_watch = false
+
 func _ready() -> void:
 	get_tree().node_added.connect(focus_button)
+	$Music.play()
 
-var idle_watch = false
+
 
 func load_game(packed_game_tscn:PackedScene):
 	remove_children()
@@ -12,6 +15,7 @@ func load_game(packed_game_tscn:PackedScene):
 	#get_tree().root.add_child(new_scene)
 	get_tree().change_scene_to_packed(packed_game_tscn)
 	idle_watch = true
+	$Music.stop()
 	
 
 func focus_button(node):
@@ -29,7 +33,8 @@ func remove_children():
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("quit"):
-		get_tree().change_scene_to_file("res://idle.tscn")
+		get_tree().change_scene_to_file("res://Menus/idle.tscn")
+		$Music.play()
 		hide_continue()
 		idle_watch = false
 		remove_children()
@@ -68,7 +73,8 @@ func _on_seconds_timer_timeout() -> void:
 	$StillPlaying/PanelContainer/CenterContainer/VBoxContainer/Countdown.text = str(seconds_left)
 	if seconds_left <= 0:
 		hide_continue()
-		get_tree().change_scene_to_file("res://idle.tscn")
+		get_tree().change_scene_to_file("res://Menus/idle.tscn")
+		$Music.play()
 		remove_children()
 
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bpwppwu4wfqlt"]
+[gd_scene load_steps=10 format=3 uid="uid://bpwppwu4wfqlt"]
 
 [ext_resource type="Script" path="res://Utils/metagame.gd" id="1_jcunn"]
-[ext_resource type="Theme" uid="uid://crhkeqyi2njhw" path="res://main_menu.tres" id="2_lf1dc"]
+[ext_resource type="Theme" uid="uid://crhkeqyi2njhw" path="res://Menus/main_menu.tres" id="2_lf1dc"]
+[ext_resource type="AudioStream" uid="uid://bqffxijjv5d5a" path="res://Menus/DavidKBD - Electric Pulse - 08 - Quantum Ripples of Sound-full.ogg" id="3_bq230"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_er233"]
 bg_color = Color(0.211765, 0.211765, 0.211765, 0.729412)
@@ -18,6 +19,21 @@ outline_size = 5
 shadow_size = 14
 shadow_color = Color(0, 0, 0, 1)
 
+[sub_resource type="Animation" id="Animation_4rcvr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StillPlaying/PanelContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_63sp1"]
 resource_name = "stillplaying?"
 length = 1.5
@@ -32,21 +48,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_4rcvr"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("StillPlaying/PanelContainer:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w3dsx"]
@@ -109,6 +110,10 @@ horizontal_alignment = 1
 libraries = {
 "": SubResource("AnimationLibrary_w3dsx")
 }
+
+[node name="Music" type="AudioStreamPlayer" parent="." groups=["meta"]]
+stream = ExtResource("3_bq230")
+autoplay = true
 
 [connection signal="timeout" from="IdleTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="StillPlaying/Timer" to="." method="_on_seconds_timer_timeout"]
