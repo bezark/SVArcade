@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ClassProjects" load_steps=12 format=3 uid="uid://d51ggb5hhp5g"]
+[gd_resource type="Resource" script_class="ClassProjects" load_steps=14 format=3 uid="uid://d51ggb5hhp5g"]
 
 [ext_resource type="Script" path="res://Classes/GameInfo.gd" id="1_l0q21"]
 [ext_resource type="Script" path="res://Classes/ClassProjects.gd" id="2_lmxfb"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cocyh417hlh1a" path="res://Assets/Thumbnails/memory.png" id="3_xb1g8"]
 [ext_resource type="Texture2D" uid="uid://dpulgputciehj" path="res://Assets/Thumbnails/museum.png" id="4_y8rve"]
 [ext_resource type="Texture2D" uid="uid://bvkpwnwfy5esb" path="res://Assets/Thumbnails/bird.png" id="5_640is"]
+[ext_resource type="Texture2D" uid="uid://chtoh5286sm2u" path="res://Assets/Thumbnails/chez.png" id="6_58vpl"]
+[ext_resource type="Texture2D" uid="uid://bek1kl0ankig" path="res://Assets/Thumbnails/alice.png" id="6_w24df"]
 
 [sub_resource type="Resource" id="Resource_pf0qt"]
 resource_name = "Memory"
@@ -41,6 +43,7 @@ globals = Array[String]([])
 resource_name = "Alice"
 script = ExtResource("1_l0q21")
 title = "Alice's Amazing Tea Party"
+thumbnail = ExtResource("6_w24df")
 authors = "Norika Katsuya & Christine Yang"
 pck_file = "res://PCKs/alice.pck"
 main_scene = "res://Main.tscn"
@@ -50,6 +53,7 @@ globals = Array[String](["res://Bgm.tscn"])
 resource_name = "Cheezy"
 script = ExtResource("1_l0q21")
 title = "The Cheezey Escape"
+thumbnail = ExtResource("6_58vpl")
 authors = "Mordred Huang, Zhenyi Wang & Yisheng Zhang"
 pck_file = "res://PCKs/cheezy.pck"
 main_scene = "res://main.tscn"
