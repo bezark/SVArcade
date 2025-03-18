@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="GameInfo" load_steps=2 format=3 uid="uid://c0uxoop3hb2yu"]
+[gd_resource type="Resource" script_class="GameInfo" load_steps=3 format=3 uid="uid://c0uxoop3hb2yu"]
 
 [ext_resource type="Script" path="res://Classes/GameInfo.gd" id="1_ptg17"]
+[ext_resource type="Texture2D" uid="uid://25io2ek6p73q" path="res://Assets/Thumbnails/echo.png" id="2_45k18"]
 
 [resource]
 script = ExtResource("1_ptg17")
 title = "Echo's Tale"
+thumbnail = ExtResource("2_45k18")
 authors = "Daniel Tiburzi, Qiaofeng Zhang & Yuanqi Zhang"
 pck_file = "res://PCKs/Echo.pck"
 main_scene = "res://scenes/levels/Opening_Menu.tscn"

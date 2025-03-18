@@ -1,29 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://dkyl4kmpkq3ee"]
+[gd_scene load_steps=7 format=3 uid="uid://dkyl4kmpkq3ee"]
 
 [ext_resource type="Theme" uid="uid://crhkeqyi2njhw" path="res://Menus/main_menu.tres" id="1_13xrf"]
-[ext_resource type="Texture2D" uid="uid://bgobk7fhfmf70" path="res://Assets/INTERN/___Spring Show 3/image 7.png" id="1_djdhr"]
+[ext_resource type="Texture2D" uid="uid://dieo6416cs80g" path="res://Assets/INTERN/___Spring Show 3/SVArcade 3.17.png" id="1_kbm24"]
 [ext_resource type="Texture2D" uid="uid://bkqeucj6xhd8u" path="res://Assets/INTERN/___Spring Show 3/gradient.png" id="3_ljdag"]
 [ext_resource type="PackedScene" uid="uid://bwc51ug0q7ufy" path="res://Menus/GridLoader.tscn" id="3_wqnd4"]
 [ext_resource type="Texture2D" uid="uid://bo5x3yavvhodi" path="res://Assets/INTERN/___Spring Show 3/Group.png" id="4_wom6a"]
 
-[sub_resource type="Gradient" id="Gradient_smied"]
-offsets = PackedFloat32Array(0, 0.471963, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_w2juj"]
-gradient = SubResource("Gradient_smied")
-width = 1152
-height = 648
-fill_to = Vector2(1, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_20mya"]
-texture = SubResource("GradientTexture2D_w2juj")
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-modulate_color = Color(0.466667, 0.458824, 1, 1)
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_psfld"]
-light_mode = 1
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7ktrt"]
+texture = ExtResource("1_kbm24")
 
 [node name="Main" type="PanelContainer"]
 texture_filter = 1
@@ -34,30 +18,27 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxTexture_20mya")
-
-[node name="TextureRect" type="TextureRect" parent="."]
-modulate = Color(0.498039, 0.788235, 1, 0.415686)
-material = SubResource("CanvasItemMaterial_psfld")
-layout_mode = 2
-texture = ExtResource("1_djdhr")
-expand_mode = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_7ktrt")
 
 [node name="Margin" type="MarginContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_13xrf")
-theme_override_constants/margin_top = 40
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 226
+theme_override_constants/margin_right = 80
 theme_override_constants/margin_bottom = 40
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Margin"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 3
 theme_override_constants/separation = 40
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Margin/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 alignment = 1
@@ -102,7 +83,6 @@ texture = ExtResource("3_ljdag")
 expand_mode = 2
 flip_h = true
 
-[node name="GridLoader" parent="Margin/VBoxContainer" instance=ExtResource("3_wqnd4")]
+[node name="GridLoader" parent="Margin" instance=ExtResource("3_wqnd4")]
 layout_mode = 2
 size_flags_vertical = 3
-columns = 3

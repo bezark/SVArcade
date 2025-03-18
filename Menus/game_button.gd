@@ -8,10 +8,10 @@ func _ready() -> void:
 	
 	
 	if game_data.thumbnail:
-		$HBox/Thumbnail.texture = game_data.thumbnail
+		$VBox/Thumbnail.texture = game_data.thumbnail
 	
-	$HBox/VBox/Authors.text = game_data.authors
-	$HBox/VBox/Title.text = game_data.title
+	#$VBox/Authors.text = game_data.authors
+	$VBox/Title.text = game_data.title
 
 
 
@@ -26,5 +26,10 @@ func _on_button_down() -> void:
 
 
 func _on_focus_entered() -> void:
+	$AnimationPlayer.play("select")
 	$Move.play()
 	
+
+
+func _on_focus_exited():
+	$AnimationPlayer.play("deselect")

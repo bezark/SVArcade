@@ -2,19 +2,85 @@
 
 [ext_resource type="Theme" uid="uid://crhkeqyi2njhw" path="res://Menus/main_menu.tres" id="1_8nasi"]
 [ext_resource type="Script" path="res://Menus/game_button.gd" id="1_yl6od"]
-[ext_resource type="Texture2D" uid="uid://c8345xp0stiux" path="res://Assets/game ui 1-bit.png" id="2_7i3ht"]
 [ext_resource type="Resource" uid="uid://c0uxoop3hb2yu" path="res://GameResources/EchosTale.tres" id="2_c0544"]
-[ext_resource type="Texture2D" uid="uid://dqrrfd7kqmptf" path="res://Assets/game UI.png" id="3_x6o0t"]
-[ext_resource type="Texture2D" uid="uid://ynl30e6ekt2r" path="res://icon.svg" id="5_j11gh"]
+[ext_resource type="Texture2D" uid="uid://cocyh417hlh1a" path="res://Assets/Thumbnails/memory.png" id="5_38xuc"]
 [ext_resource type="AudioStream" uid="uid://btqg4fi4k28om" path="res://Assets/--Pixelated UI/--Pixelated UI/Pixel_20.wav" id="8_a4j1r"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_t6nhk"]
-atlas = ExtResource("2_7i3ht")
-region = Rect2(32, 608, 64, 64)
+[sub_resource type="Animation" id="Animation_jgnwy"]
+resource_name = "select"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBox/Thumbnail:custom_minimum_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(256, 144), Vector2(320, 180)]
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mt0ri"]
-atlas = ExtResource("3_x6o0t")
-region = Rect2(32, 608, 64, 64)
+[sub_resource type="Animation" id="Animation_tax8t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBox/Thumbnail:custom_minimum_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(256, 144)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qkuh2"]
+resource_name = "deselect"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBox/Thumbnail:custom_minimum_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(320, 180), Vector2(256, 144)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.633333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 0.203922, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_er6qv"]
+_data = {
+"RESET": SubResource("Animation_tax8t"),
+"deselect": SubResource("Animation_qkuh2"),
+"select": SubResource("Animation_jgnwy")
+}
 
 [node name="GameButton" type="TextureButton"]
 anchors_preset = 15
@@ -25,50 +91,42 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_8nasi")
-texture_normal = SubResource("AtlasTexture_t6nhk")
-texture_focused = SubResource("AtlasTexture_mt0ri")
 ignore_texture_size = true
-stretch_mode = 5
+stretch_mode = 0
 script = ExtResource("1_yl6od")
 game_data = ExtResource("2_c0544")
-
-[node name="HBox" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -82.5
-offset_top = -27.0
-offset_right = 82.5
-offset_bottom = 27.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Thumbnail" type="TextureRect" parent="HBox"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("5_j11gh")
-
-[node name="VBox" type="VBoxContainer" parent="HBox"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Title" type="Label" parent="HBox/VBox"]
-custom_minimum_size = Vector2(10, 10)
-layout_mode = 2
-text = "Title"
-autowrap_mode = 3
-
-[node name="Authors" type="Label" parent="HBox/VBox"]
-visible = false
-layout_mode = 2
-text = "Authors"
 
 [node name="Move" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_a4j1r")
 
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+offset_right = 678.0
+offset_bottom = 410.0
+size_flags_horizontal = 3
+
+[node name="Thumbnail" type="TextureRect" parent="VBox"]
+custom_minimum_size = Vector2(256, 144)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 0
+texture = ExtResource("5_38xuc")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Title" type="Label" parent="VBox"]
+z_index = 2
+custom_minimum_size = Vector2(263, 10)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Title"
+autowrap_mode = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_er6qv")
+}
+
 [connection signal="button_down" from="." to="." method="_on_button_down"]
 [connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]

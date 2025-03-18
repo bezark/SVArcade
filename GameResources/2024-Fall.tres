@@ -1,13 +1,17 @@
-[gd_resource type="Resource" script_class="ClassProjects" load_steps=9 format=3 uid="uid://d51ggb5hhp5g"]
+[gd_resource type="Resource" script_class="ClassProjects" load_steps=12 format=3 uid="uid://d51ggb5hhp5g"]
 
 [ext_resource type="Script" path="res://Classes/GameInfo.gd" id="1_l0q21"]
 [ext_resource type="Script" path="res://Classes/ClassProjects.gd" id="2_lmxfb"]
 [ext_resource type="Resource" uid="uid://c0uxoop3hb2yu" path="res://GameResources/EchosTale.tres" id="2_pkg1w"]
+[ext_resource type="Texture2D" uid="uid://cocyh417hlh1a" path="res://Assets/Thumbnails/memory.png" id="3_xb1g8"]
+[ext_resource type="Texture2D" uid="uid://dpulgputciehj" path="res://Assets/Thumbnails/museum.png" id="4_y8rve"]
+[ext_resource type="Texture2D" uid="uid://bvkpwnwfy5esb" path="res://Assets/Thumbnails/bird.png" id="5_640is"]
 
 [sub_resource type="Resource" id="Resource_pf0qt"]
 resource_name = "Memory"
 script = ExtResource("1_l0q21")
 title = "Memory"
+thumbnail = ExtResource("3_xb1g8")
 authors = "Dazhong Deng & Ruoxin Yu"
 pck_file = "res://PCKs/memory.pck"
 main_scene = "res://menu/main_menu.tscn/"
@@ -17,6 +21,7 @@ globals = Array[String](["res://audio_stream_player.tscn"])
 resource_name = "Museum"
 script = ExtResource("1_l0q21")
 title = "Museum Story"
+thumbnail = ExtResource("4_y8rve")
 authors = "Chuhan Ji & Bryan Pang"
 pck_file = "res://PCKs/museum.pck"
 main_scene = "res://scenes/mian.tscn"
@@ -26,6 +31,7 @@ globals = Array[String](["res://audio_stream_player.tscn"])
 resource_name = "sky-theater"
 script = ExtResource("1_l0q21")
 title = "Sky Theater"
+thumbnail = ExtResource("5_640is")
 authors = "Mordred Huang"
 pck_file = "res://PCKs/sky-theater.pck"
 main_scene = "res://story1.tscn"
