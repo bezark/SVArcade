@@ -5,7 +5,7 @@ extends GridContainer
 func _ready():
 	#grab_focus()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
+	Metagame.start_music()
 	var old_ui = null
 	for game in class_projects.projects:
 		var new_ui : GameButton = game_ui.instantiate()

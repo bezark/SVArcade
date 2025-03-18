@@ -5,6 +5,7 @@ var idle_watch = false
 func _ready() -> void:
 	get_tree().node_added.connect(focus_button)
 	$Music.play()
+	idle_watch = false
 
 
 
@@ -50,6 +51,7 @@ func load_globals(globals):
 
 
 func _input(event: InputEvent) -> void:
+	print(event)
 	if idle_watch:
 		$IdleTimer.start()
 	hide_continue()
@@ -63,6 +65,7 @@ var seconds_left = 10
 
 ##Start countdown
 func _on_timer_timeout() -> void:
+	print("timeou")
 	$StillPlaying/PanelContainer/CenterContainer/VBoxContainer/Countdown.text = str(seconds_left)
 	$AnimationPlayer.play("stillplaying?")
 	$StillPlaying.show()
@@ -81,3 +84,11 @@ func _on_seconds_timer_timeout() -> void:
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "stillplaying?":
 		$StillPlaying/Timer.start()
+
+
+func start_music():
+	if not $Music.playing:
+		$Music.play()
+
+func stop_music():
+	$Music.stop()
