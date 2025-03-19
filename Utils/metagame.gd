@@ -34,7 +34,7 @@ func remove_children():
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("quit"):
-		get_tree().change_scene_to_file("res://Menus/idle.tscn")
+		get_tree().change_scene_to_file("res://Menus/main_menu.tscn")
 		$Music.play()
 		hide_continue()
 		idle_watch = false
@@ -76,7 +76,7 @@ func _on_seconds_timer_timeout() -> void:
 	$StillPlaying/PanelContainer/CenterContainer/VBoxContainer/Countdown.text = str(seconds_left)
 	if seconds_left <= 0:
 		hide_continue()
-		get_tree().change_scene_to_file("res://Menus/idle.tscn")
+		get_tree().change_scene_to_file("res://Menus/main_menu.tscn")
 		$Music.play()
 		remove_children()
 

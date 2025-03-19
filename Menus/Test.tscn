@@ -1,19 +1,21 @@
-[gd_scene load_steps=12 format=3 uid="uid://d0we7vk8ylnle"]
+[gd_scene load_steps=13 format=3 uid="uid://babuqurd4q31t"]
 
-[ext_resource type="Theme" uid="uid://crhkeqyi2njhw" path="res://Menus/main_menu.tres" id="1_8nasi"]
-[ext_resource type="Script" path="res://Menus/game_button.gd" id="1_yl6od"]
-[ext_resource type="Resource" uid="uid://c0uxoop3hb2yu" path="res://GameResources/EchosTale.tres" id="2_c0544"]
-[ext_resource type="Texture2D" uid="uid://cocyh417hlh1a" path="res://Assets/Thumbnails/memory.png" id="5_38xuc"]
-[ext_resource type="Shader" path="res://Menus/drop_shadow.gdshader" id="6_vb7rc"]
-[ext_resource type="AudioStream" uid="uid://btqg4fi4k28om" path="res://Assets/--Pixelated UI/--Pixelated UI/Pixel_20.wav" id="8_a4j1r"]
+[ext_resource type="Theme" uid="uid://crhkeqyi2njhw" path="res://Menus/main_menu.tres" id="1_j7o4j"]
+[ext_resource type="Script" path="res://Menus/game_button.gd" id="2_0cerx"]
+[ext_resource type="Resource" uid="uid://c0uxoop3hb2yu" path="res://GameResources/EchosTale.tres" id="3_mn8b8"]
+[ext_resource type="AudioStream" uid="uid://btqg4fi4k28om" path="res://Assets/--Pixelated UI/--Pixelated UI/Pixel_20.wav" id="4_36gll"]
+[ext_resource type="Texture2D" uid="uid://cocyh417hlh1a" path="res://Assets/Thumbnails/memory.png" id="5_o2s8n"]
+[ext_resource type="Shader" path="res://Menus/drop_shadow.gdshader" id="6_rodap"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1hymq"]
-shader = ExtResource("6_vb7rc")
-shader_parameter/debug = false
-shader_parameter/border_scale = 1.2
-shader_parameter/shadow_offset = Vector2(-10, -10)
+[sub_resource type="CanvasTexture" id="CanvasTexture_u7ykm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g2jat"]
+shader = ExtResource("6_rodap")
+shader_parameter/debug = true
+shader_parameter/border_scale = 2.0
+shader_parameter/shadow_offset = Vector2(-20, -20)
 shader_parameter/color = null
-shader_parameter/blur_amount = 0.0
+shader_parameter/blur_amount = 5.0
 shader_parameter/shadow_scale = 1.0
 shader_parameter/disable_rotating = false
 
@@ -93,40 +95,53 @@ _data = {
 "select": SubResource("Animation_jgnwy")
 }
 
-[node name="GameButton" type="TextureButton"]
+[node name="Control" type="ColorRect"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="GameButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 234.0
+offset_bottom = 166.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("1_8nasi")
+theme = ExtResource("1_j7o4j")
+texture_hover = SubResource("CanvasTexture_u7ykm")
 ignore_texture_size = true
 stretch_mode = 0
-script = ExtResource("1_yl6od")
-game_data = ExtResource("2_c0544")
+script = ExtResource("2_0cerx")
+game_data = ExtResource("3_mn8b8")
 
-[node name="Move" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_a4j1r")
+[node name="Move" type="AudioStreamPlayer" parent="GameButton"]
+stream = ExtResource("4_36gll")
 
-[node name="VBox" type="VBoxContainer" parent="."]
+[node name="VBox" type="VBoxContainer" parent="GameButton"]
 layout_mode = 1
-offset_right = 678.0
-offset_bottom = 410.0
+offset_left = 63.0
+offset_top = 36.0
+offset_right = 741.0
+offset_bottom = 446.0
 size_flags_horizontal = 3
 
-[node name="Thumbnail" type="TextureRect" parent="VBox"]
-material = SubResource("ShaderMaterial_1hymq")
+[node name="Thumbnail" type="TextureRect" parent="GameButton/VBox"]
+material = SubResource("ShaderMaterial_g2jat")
 custom_minimum_size = Vector2(256, 144)
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 0
-texture = ExtResource("5_38xuc")
+texture = ExtResource("5_o2s8n")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Title" type="Label" parent="VBox"]
+[node name="Title" type="Label" parent="GameButton/VBox"]
 z_index = 2
 custom_minimum_size = Vector2(263, 10)
 layout_mode = 2
@@ -134,11 +149,11 @@ size_flags_horizontal = 0
 text = "Title"
 autowrap_mode = 3
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GameButton"]
 libraries = {
 "": SubResource("AnimationLibrary_er6qv")
 }
 
-[connection signal="button_down" from="." to="." method="_on_button_down"]
-[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
-[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
+[connection signal="button_down" from="GameButton" to="GameButton" method="_on_button_down"]
+[connection signal="focus_entered" from="GameButton" to="GameButton" method="_on_focus_entered"]
+[connection signal="focus_exited" from="GameButton" to="GameButton" method="_on_focus_exited"]
