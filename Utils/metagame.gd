@@ -9,12 +9,14 @@ func _ready() -> void:
 
 
 
-func load_game(packed_game_tscn:PackedScene):
+func load_game(packed_game_tscn:PackedScene, clear_color : Color):
 	remove_children()
 	prints("loading", packed_game_tscn)
 	var new_scene = packed_game_tscn.instantiate()
+	RenderingServer.set_default_clear_color(clear_color)
 	#get_tree().root.add_child(new_scene)
 	get_tree().change_scene_to_packed(packed_game_tscn)
+	
 	idle_watch = true
 	$Music.stop()
 	

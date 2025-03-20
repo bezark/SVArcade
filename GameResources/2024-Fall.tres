@@ -18,6 +18,7 @@ authors = "Dazhong Deng & Ruoxin Yu"
 pck_file = "res://PCKs/memory.pck"
 main_scene = "res://menu/main_menu.tscn/"
 globals = Array[String](["res://audio_stream_player.tscn"])
+clear_color = Color(0.698039, 0.470588, 0.360784, 1)
 
 [sub_resource type="Resource" id="Resource_jpcpu"]
 resource_name = "Museum"
@@ -28,6 +29,7 @@ authors = "Chuhan Ji & Bryan Pang"
 pck_file = "res://PCKs/museum.pck"
 main_scene = "res://scenes/mian.tscn"
 globals = Array[String](["res://audio_stream_player.tscn"])
+clear_color = Color(0.109411, 0.0181889, 0.280626, 1)
 
 [sub_resource type="Resource" id="Resource_1u6iv"]
 resource_name = "sky-theater"
@@ -38,6 +40,7 @@ authors = "Mordred Huang"
 pck_file = "res://PCKs/sky-theater.pck"
 main_scene = "res://story1.tscn"
 globals = Array[String]([])
+clear_color = Color(0.192197, 0.192197, 0.192197, 1)
 
 [sub_resource type="Resource" id="Resource_3otgt"]
 resource_name = "Alice"
@@ -48,6 +51,7 @@ authors = "Norika Katsuya & Christine Yang"
 pck_file = "res://PCKs/alice.pck"
 main_scene = "res://Main.tscn"
 globals = Array[String](["res://Bgm.tscn"])
+clear_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Resource" id="Resource_206wk"]
 resource_name = "Cheezy"
@@ -58,6 +62,7 @@ authors = "Mordred Huang, Zhenyi Wang & Yisheng Zhang"
 pck_file = "res://PCKs/cheezy.pck"
 main_scene = "res://main.tscn"
 globals = Array[String]([])
+clear_color = Color(0.0599037, 0.557382, 0.61809, 1)
 
 [resource]
 script = ExtResource("2_lmxfb")

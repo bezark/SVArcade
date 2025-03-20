@@ -9,5 +9,5 @@ func _ready() -> void:
 
 
 func _on_play_button_down() -> void:
-	$PCKImporter.load_pck(game_data.pck_file, game_data.main_scene, game_data.globals)
+	$PCKImporter.load_pck(game_data.pck_file, game_data.main_scene, game_data.globals, game_data.clear_color)
 	

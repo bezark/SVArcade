@@ -10,3 +10,5 @@ class_name GameInfo
 @export var main_scene : String
 
 @export var globals : Array[String] = []
+
+@export var clear_color : Color

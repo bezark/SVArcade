@@ -37,6 +37,9 @@ grow_vertical = 2
 
 [node name="GameButton" parent="." instance=ExtResource("1_4seqa")]
 layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = 575.0
 offset_top = 85.0
 offset_right = 575.0
