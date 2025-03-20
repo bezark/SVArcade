@@ -1,12 +1,12 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://crhkeqyi2njhw"]
 
-[ext_resource type="FontFile" uid="uid://cs0ake8x4w7c4" path="res://Assets/Fonts/cm sans serif 2012.ttf" id="1_er6qj"]
+[ext_resource type="FontFile" uid="uid://cs0ake8x4w7c4" path="res://Assets/Fonts/cm sans serif 2012.ttf" id="1_2gse0"]
 
 [resource]
 Button/colors/font_color = Color(0.941176, 0.933333, 0.603922, 1)
-Button/fonts/font = ExtResource("1_er6qj")
+Button/fonts/font = null
 GridContainer/constants/h_separation = 10
 GridContainer/constants/v_separation = 10
 Label/colors/font_color = Color(0.941176, 0.933333, 0.603922, 1)
 Label/font_sizes/font_size = 24
-Label/fonts/font = ExtResource("1_er6qj")
+Label/fonts/font = ExtResource("1_2gse0")

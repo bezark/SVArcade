@@ -5,17 +5,19 @@
 [ext_resource type="AudioStream" uid="uid://bqffxijjv5d5a" path="res://Menus/DavidKBD - Electric Pulse - 08 - Quantum Ripples of Sound-full.ogg" id="3_bq230"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_er233"]
-bg_color = Color(0.211765, 0.211765, 0.211765, 0.729412)
+bg_color = Color(0.122522, 0.201097, 0.387575, 0.729412)
 
 [sub_resource type="LabelSettings" id="LabelSettings_qrh4q"]
 font_size = 24
+font_color = Color(0.894118, 0.890196, 0.6, 1)
 shadow_size = 8
 shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_b6ndy"]
 font_size = 64
-font_color = Color(1, 0.74902, 0, 1)
+font_color = Color(0.894118, 0.890196, 0.6, 1)
 outline_size = 5
+outline_color = Color(0.372549, 0.505882, 1, 1)
 shadow_size = 14
 shadow_color = Color(0, 0, 0, 1)
 
@@ -64,7 +66,6 @@ wait_time = 20.0
 one_shot = true
 
 [node name="StillPlaying" type="CanvasLayer" parent="." groups=["meta"]]
-visible = false
 
 [node name="PanelContainer" type="PanelContainer" parent="StillPlaying" groups=["meta"]]
 modulate = Color(1, 1, 1, 0)

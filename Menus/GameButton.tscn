@@ -1,21 +1,24 @@
-[gd_scene load_steps=12 format=3 uid="uid://d0we7vk8ylnle"]
+[gd_scene load_steps=14 format=3 uid="uid://d0we7vk8ylnle"]
 
 [ext_resource type="Theme" uid="uid://crhkeqyi2njhw" path="res://Menus/main_menu.tres" id="1_8nasi"]
 [ext_resource type="Script" path="res://Menus/game_button.gd" id="1_yl6od"]
 [ext_resource type="Resource" uid="uid://c0uxoop3hb2yu" path="res://GameResources/EchosTale.tres" id="2_c0544"]
 [ext_resource type="Texture2D" uid="uid://cocyh417hlh1a" path="res://Assets/Thumbnails/memory.png" id="5_38xuc"]
+[ext_resource type="Texture2D" uid="uid://d0u6l7ebswsw3" path="res://drop-shadow-png-7.png" id="6_cpmdr"]
 [ext_resource type="Shader" path="res://Menus/drop_shadow.gdshader" id="6_vb7rc"]
 [ext_resource type="AudioStream" uid="uid://btqg4fi4k28om" path="res://Assets/--Pixelated UI/--Pixelated UI/Pixel_20.wav" id="8_a4j1r"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1hymq"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_22ypv"]
 shader = ExtResource("6_vb7rc")
 shader_parameter/debug = false
-shader_parameter/border_scale = 1.2
+shader_parameter/border_scale = 2.0
 shader_parameter/shadow_offset = Vector2(-10, -10)
 shader_parameter/color = null
 shader_parameter/blur_amount = 0.0
-shader_parameter/shadow_scale = 1.0
+shader_parameter/shadow_scale = 1.5
 shader_parameter/disable_rotating = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wqstv"]
 
 [sub_resource type="Animation" id="Animation_tax8t"]
 length = 0.001
@@ -56,7 +59,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.233333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(320, 180), Vector2(256, 144)]
+"values": [Vector2(256, 144), Vector2(192, 108)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -69,6 +72,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 0.203922, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Shadow:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_jgnwy"]
@@ -83,7 +98,19 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(256, 144), Vector2(320, 180)]
+"values": [Vector2(192, 108), Vector2(256, 144)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shadow:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 0.366667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_er6qv"]
@@ -94,11 +121,13 @@ _data = {
 }
 
 [node name="GameButton" type="TextureButton"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+material = SubResource("ShaderMaterial_22ypv")
+custom_minimum_size = Vector2(256, 172)
+anchors_preset = -1
+anchor_right = 0.387222
+anchor_bottom = 0.423432
+offset_right = -190.08
+offset_bottom = -102.384
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_8nasi")
@@ -106,22 +135,29 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("1_yl6od")
 game_data = ExtResource("2_c0544")
+metadata/_edit_use_anchors_ = true
 
 [node name="Move" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_a4j1r")
 
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(144, 96)
+scale = Vector2(0.206309, 0.15764)
+texture = ExtResource("6_cpmdr")
+
 [node name="VBox" type="VBoxContainer" parent="."]
-layout_mode = 1
-offset_right = 678.0
-offset_bottom = 410.0
+layout_mode = 0
+offset_right = 263.0
+offset_bottom = 136.0
 size_flags_horizontal = 3
 
 [node name="Thumbnail" type="TextureRect" parent="VBox"]
-material = SubResource("ShaderMaterial_1hymq")
+material = SubResource("ShaderMaterial_wqstv")
 custom_minimum_size = Vector2(256, 144)
 layout_mode = 2
 size_flags_horizontal = 2
-size_flags_vertical = 0
+size_flags_vertical = 8
 texture = ExtResource("5_38xuc")
 expand_mode = 1
 stretch_mode = 5
@@ -131,6 +167,8 @@ z_index = 2
 custom_minimum_size = Vector2(263, 10)
 layout_mode = 2
 size_flags_horizontal = 0
+size_flags_vertical = 2
+theme_override_font_sizes/font_size = 18
 text = "Title"
 autowrap_mode = 3
 

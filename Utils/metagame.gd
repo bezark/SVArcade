@@ -51,7 +51,6 @@ func load_globals(globals):
 
 
 func _input(event: InputEvent) -> void:
-	print(event)
 	if idle_watch:
 		$IdleTimer.start()
 	hide_continue()
