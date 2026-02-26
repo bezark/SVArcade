@@ -1,6 +1,12 @@
-# SVArcade-2025
+# SVArcade
 
 This is a collection of games made by students at SVA.
+## 2025
+### Fall
+### Spring
+
+## 2024
+### Fall
 - [Echoe's Tale](exports/EchoesTale/)
 - [Memory](exports/Memory/)
 - [Sky Theater](exports/SkyTheater/)
