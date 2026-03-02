@@ -9,7 +9,13 @@ This is a collection of games made by students at SVA.
 - [Blooock](exports/2025-Fall/Blooock/) — Dexter Barrett, Kyra Chang, Cong Zhao
 - [Visual Novel](exports/2025-Fall/VisualNovel/) — Abigail Greenberg, Violet Liang, Brian Wu, Yuanyu Xiang
 - [The Pet](exports/2025-Fall/ThePet/) — Daibaihe Jiang, Junxin Jiang, Alice Li, Junseok Lim
-<!-- Trolley Problem and Momentum excluded for now (PCK too large for GitHub Pages) -->
+- [Trolley Problem](https://zebark.srht.site/trolley-problem/) — Junxin Jiang, Yuanyu Xiang, Cong Zhao *(Capstone)*
+- [Momentum](https://zebark.srht.site/momentum/) — Junseok Lim *(Capstone)*
+
+#### Capstone — itch.io only (no source repo available)
+- [Cats and Cannons](https://dbarrettsva.itch.io/cats-and-cannons) — Dexter Barrett
+- [Stay Forever](https://lisiyunalice.itch.io/stay-forever) — Daibaihe Jiang, Alice Li
+- [Starcatcher](https://rachelli7.itch.io/starcatcher) — Ruiqi Li
 
 ### Spring
 - [Group Chef](exports/2025-Spring/GroupChef/) — Liyang Chen, Lizhang Ji, Jiayu Zhang
