@@ -9,8 +9,7 @@ This is a collection of games made by students at SVA.
 - [Blooock](exports/2025-Fall/Blooock/) — Dexter Barrett, Kyra Chang, Cong Zhao
 - [Visual Novel](exports/2025-Fall/VisualNovel/) — Abigail Greenberg, Violet Liang, Brian Wu, Yuanyu Xiang
 - [The Pet](exports/2025-Fall/ThePet/) — Daibaihe Jiang, Junxin Jiang, Alice Li, Junseok Lim
-- [Trolley Problem](exports/2025-Fall/TrolleyProblem/) — Junxin Jiang, Yuanyu Xiang, Cong Zhao *(Capstone)*
-- [Momentum](exports/2025-Fall/Momentum/) — Junseok Lim *(Capstone)*
+<!-- Trolley Problem and Momentum excluded for now (PCK too large for GitHub Pages) -->
 
 ### Spring
 - [Group Chef](exports/2025-Spring/GroupChef/) — Liyang Chen, Lizhang Ji, Jiayu Zhang
