@@ -1,0 +1,126 @@
+[gd_scene load_steps=14 format=3 uid="uid://c4v4dehvamprd"]
+
+[ext_resource type="Script" path="res://Script/cart_pusher.gd" id="1_mwhjy"]
+[ext_resource type="Texture2D" uid="uid://brjcw2x5ltsg6" path="res://Assets/CC_Assets/人物Assets/Fishmonger_2_idle_anim_16x16.png" id="2_aaddx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_un751"]
+atlas = ExtResource("2_aaddx")
+region = Rect2(192, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujctd"]
+atlas = ExtResource("2_aaddx")
+region = Rect2(208, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7a2px"]
+atlas = ExtResource("2_aaddx")
+region = Rect2(224, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bq1w1"]
+atlas = ExtResource("2_aaddx")
+region = Rect2(240, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k86yy"]
+atlas = ExtResource("2_aaddx")
+region = Rect2(256, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iijax"]
+atlas = ExtResource("2_aaddx")
+region = Rect2(272, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n5uyx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_un751")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujctd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7a2px")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bq1w1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k86yy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iijax")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vld1a"]
+radius = 4.12311
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d2j42"]
+radius = 16.0312
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2o3bs"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_i1jj7"]
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[node name="Cart_pusher" type="Node2D"]
+script = ExtResource("1_mwhjy")
+dialogue = Array[String](["", "Cart Pusher: You lent me a hand once, helping pick up a whole load of groceries.", "Player: You seemed like you could use the help.", "Cart Pusher: It meant more than you know—small kindnesses matter."])
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_n5uyx")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-1, 9)
+shape = SubResource("CircleShape2D_vld1a")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_d2j42")
+
+[node name="Memory11" type="Marker2D" parent="."]
+position = Vector2(33, 6)
+
+[node name="DialogueBox" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="PanelContainer" type="PanelContainer" parent="DialogueBox"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -105.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2o3bs")
+
+[node name="Text" type="Label" parent="DialogueBox/PanelContainer"]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Hi! How are you?"
+label_settings = SubResource("LabelSettings_i1jj7")
+autowrap_mode = 3
+text_direction = 1
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

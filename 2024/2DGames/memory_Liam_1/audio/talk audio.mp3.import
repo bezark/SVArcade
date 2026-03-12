@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b878ji4j501pf"
+path="res://.godot/imported/talk audio.mp3-041735a2680ca3915be2b6a547a86492.mp3str"
+
+[deps]
+
+source_file="res://audio/talk audio.mp3"
+dest_files=["res://.godot/imported/talk audio.mp3-041735a2680ca3915be2b6a547a86492.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

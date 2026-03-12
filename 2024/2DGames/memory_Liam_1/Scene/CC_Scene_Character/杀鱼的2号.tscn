@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://b8e127hm4voxm"]
+
+[ext_resource type="Texture2D" uid="uid://co0131cknfg6k" path="res://人物动画/Doctor_2_16x16.png" id="1_cs6r5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxfjk"]
+atlas = ExtResource("1_cs6r5")
+region = Rect2(0, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0s6ay"]
+atlas = ExtResource("1_cs6r5")
+region = Rect2(16, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1y5c"]
+atlas = ExtResource("1_cs6r5")
+region = Rect2(32, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oye6e"]
+atlas = ExtResource("1_cs6r5")
+region = Rect2(48, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2i3mj"]
+atlas = ExtResource("1_cs6r5")
+region = Rect2(64, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_coxo7"]
+atlas = ExtResource("1_cs6r5")
+region = Rect2(80, 32, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hbf5v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oxfjk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0s6ay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1y5c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oye6e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2i3mj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_coxo7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vdim6"]
+radius = 5.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hbf5v")
+autoplay = "default"
+frame_progress = 0.618729
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D"]
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_vdim6")

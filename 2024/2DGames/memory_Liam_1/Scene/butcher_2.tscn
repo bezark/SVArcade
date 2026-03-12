@@ -1,0 +1,132 @@
+[gd_scene load_steps=15 format=3 uid="uid://5inigq4nx0uk"]
+
+[ext_resource type="Script" path="res://butcher.gd" id="1_8tbev"]
+[ext_resource type="Texture2D" uid="uid://2ire2axqcwhv" path="res://Assets/CC_Assets/人物Assets/Butcher_2_idle_anim_16x16.png" id="2_yc1tj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pyk7g"]
+atlas = ExtResource("2_yc1tj")
+region = Rect2(288, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ho8o1"]
+atlas = ExtResource("2_yc1tj")
+region = Rect2(304, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ok1i4"]
+atlas = ExtResource("2_yc1tj")
+region = Rect2(320, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eferc"]
+atlas = ExtResource("2_yc1tj")
+region = Rect2(336, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4vj8u"]
+atlas = ExtResource("2_yc1tj")
+region = Rect2(352, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ivpg"]
+atlas = ExtResource("2_yc1tj")
+region = Rect2(368, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a7gfb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pyk7g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ho8o1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ok1i4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eferc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4vj8u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ivpg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pxvqy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_38m1n"]
+radius = 16.0312
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0blh7"]
+radius = 16.0312
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ucna"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_65pqw"]
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[node name="Butcher_2" type="Node2D"]
+script = ExtResource("1_8tbev")
+dialogue = Array[String](["", "Butcher_2: I often saw you pausing here, watching with a quiet intensity.", "Player: It felt timeless, a piece of history in every motion.", "Butcher_2: That’s exactly it. There’s a cycle, a rhythm to everything we do."])
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_a7gfb")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_pxvqy")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_38m1n")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 60)
+shape = SubResource("CircleShape2D_0blh7")
+
+[node name="Memory11" type="Marker2D" parent="."]
+position = Vector2(-31, 1)
+
+[node name="DialogueBox" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="PanelContainer" type="PanelContainer" parent="DialogueBox"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -105.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3ucna")
+
+[node name="Text" type="Label" parent="DialogueBox/PanelContainer"]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "What can I help you?"
+label_settings = SubResource("LabelSettings_65pqw")
+autowrap_mode = 3
+text_direction = 1
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

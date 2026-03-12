@@ -1,0 +1,126 @@
+[gd_scene load_steps=14 format=3 uid="uid://dhsumkng8dwos"]
+
+[ext_resource type="Script" path="res://Script/little_brother.gd" id="1_bih1w"]
+[ext_resource type="Texture2D" uid="uid://cyssa8y6n11jt" path="res://Assets/CC_Assets/人物Assets/Adam_idle_anim_16x16.png" id="2_7pdsn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gaq0g"]
+atlas = ExtResource("2_7pdsn")
+region = Rect2(288, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2u7bk"]
+atlas = ExtResource("2_7pdsn")
+region = Rect2(304, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvae2"]
+atlas = ExtResource("2_7pdsn")
+region = Rect2(320, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3utux"]
+atlas = ExtResource("2_7pdsn")
+region = Rect2(336, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qoj7a"]
+atlas = ExtResource("2_7pdsn")
+region = Rect2(352, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gncxc"]
+atlas = ExtResource("2_7pdsn")
+region = Rect2(368, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6hyfd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gaq0g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2u7bk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvae2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3utux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qoj7a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gncxc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c3yk0"]
+radius = 7.07107
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0dn2s"]
+radius = 16.0312
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stw30"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_snrdu"]
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[node name="Little Brother" type="Node2D"]
+script = ExtResource("1_bih1w")
+dialogue = Array[String](["", "Another Brother: You taught me how to read by the window.", "Player: It was a tough lesson, I think.", "Another Brother: You made it interesting… I still look back on it."])
+
+[node name="Little Brother" type="CharacterBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Little Brother"]
+sprite_frames = SubResource("SpriteFrames_6hyfd")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Little Brother"]
+position = Vector2(0, 7)
+shape = SubResource("CircleShape2D_c3yk0")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_0dn2s")
+
+[node name="Memory11" type="Marker2D" parent="."]
+position = Vector2(38, 9)
+
+[node name="DialogueBox" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="PanelContainer" type="PanelContainer" parent="DialogueBox"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -105.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_stw30")
+
+[node name="Text" type="Label" parent="DialogueBox/PanelContainer"]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "^&(*(^)*^*"
+label_settings = SubResource("LabelSettings_snrdu")
+autowrap_mode = 3
+text_direction = 1
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://ik6bu4x7pn8v"]
+
+[ext_resource type="Texture2D" uid="uid://c5rn5muyfwtrn" path="res://scene/corridor2.png" id="1_8o6ar"]
+[ext_resource type="PackedScene" uid="uid://cd4wh7vd3nct1" path="res://you.tscn" id="2_38lgk"]
+[ext_resource type="AudioStream" uid="uid://ddiiwk5vg3ueg" path="res://BGM/lost-in-dreams-abstract-chill-downtempo-cinematic-future-beats-270241.mp3" id="2_mqwbu"]
+[ext_resource type="Script" path="res://chagescene.gd" id="6_e2eef"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uwspi"]
+size = Vector2(1218, 86.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i1w6d"]
+size = Vector2(55, 658)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mwx2o"]
+size = Vector2(98, 613)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7q7dk"]
+size = Vector2(116, 612)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="scene" type="StaticBody2D" parent="."]
+
+[node name="Corridor" type="Sprite2D" parent="scene"]
+position = Vector2(1, -1)
+scale = Vector2(0.601562, 0.601563)
+texture = ExtResource("1_8o6ar")
+
+[node name="floor" type="CollisionShape2D" parent="scene"]
+position = Vector2(0, 278.25)
+shape = SubResource("RectangleShape2D_uwspi")
+
+[node name="Camera2D" type="Camera2D" parent="scene"]
+position = Vector2(0.999998, -1.99999)
+scale = Vector2(0.219536, 0.219536)
+
+[node name="wall_left" type="CollisionShape2D" parent="scene"]
+position = Vector2(-603.5, 2)
+shape = SubResource("RectangleShape2D_i1w6d")
+
+[node name="wall_right" type="CollisionShape2D" parent="scene"]
+position = Vector2(626, -18.5)
+shape = SubResource("RectangleShape2D_mwx2o")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="scene"]
+stream = ExtResource("2_mqwbu")
+volume_db = 11.143
+autoplay = true
+
+[node name="you" parent="." instance=ExtResource("2_38lgk")]
+position = Vector2(846, -2)
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("6_e2eef")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-564, -41)
+shape = SubResource("RectangleShape2D_7q7dk")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkmoiqovkmj6h"]
+
+[ext_resource type="Script" path="res://hand_2d.gd" id="1_ghkul"]
+[ext_resource type="Texture2D" uid="uid://j0dknp61vmk4" path="res://hand.png" id="1_vykpk"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_ghkul")
+
+[node name="Hand" type="Sprite2D" parent="."]
+position = Vector2(242.625, 31.75)
+scale = Vector2(0.0747549, 0.0747549)
+texture = ExtResource("1_vykpk")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(241.821, 32.5)
+scale = Vector2(0.396459, 0.396459)
+zoom = Vector2(3, 3)
+limit_bottom = 152
+limit_smoothed = true
+
+[node name="Button" type="Button" parent="."]
+offset_left = 277.0
+offset_top = -49.0
+offset_right = 418.0
+offset_bottom = -13.0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ff04igds3wn7"
+path="res://.godot/imported/C4.mp3-d11c6cc289d8c20d96ea5156517caad1.mp3str"
+
+[deps]
+
+source_file="res://Audio Files/Audio Level 1 (Guitar)/C4.mp3"
+dest_files=["res://.godot/imported/C4.mp3-d11c6cc289d8c20d96ea5156517caad1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

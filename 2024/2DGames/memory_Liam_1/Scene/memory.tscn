@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://1ffv0pcfib4e"]
+
+[ext_resource type="Texture2D" uid="uid://mjntlesrd25j" path="res://Characters/Mood_changer_flip_16x16.png" id="1_1krv5"]
+[ext_resource type="Script" path="res://Scene/memory.gd" id="1_1wfw0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_obu52"]
+radius = 25.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sk3xs"]
+atlas = ExtResource("1_1krv5")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5r76"]
+atlas = ExtResource("1_1krv5")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kievg"]
+atlas = ExtResource("1_1krv5")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vss2s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sk3xs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5r76")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kievg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="memory" type="Node2D"]
+script = ExtResource("1_1wfw0")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(0.2, 0.2)
+shape = SubResource("CircleShape2D_obu52")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.19209e-07, 1.42109e-14)
+rotation = 3.14159
+scale = Vector2(1.12835, 0.75)
+sprite_frames = SubResource("SpriteFrames_vss2s")
+autoplay = "default"
+frame_progress = 0.0194031
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

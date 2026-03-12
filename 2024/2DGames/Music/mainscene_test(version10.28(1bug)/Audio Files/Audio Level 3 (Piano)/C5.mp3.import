@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bmew6pfeinfmb"
+path="res://.godot/imported/C5.mp3-63c75fc5d8a755f2b9162d3224f1d06a.mp3str"
+
+[deps]
+
+source_file="res://Audio Files/Audio Level 3 (Piano)/C5.mp3"
+dest_files=["res://.godot/imported/C5.mp3-63c75fc5d8a755f2b9162d3224f1d06a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

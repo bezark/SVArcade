@@ -1,0 +1,126 @@
+[gd_scene load_steps=14 format=3 uid="uid://odvgp3a4v7mb"]
+
+[ext_resource type="Script" path="res://chef.gd" id="1_il8n1"]
+[ext_resource type="Texture2D" uid="uid://dynnmghlx4pnx" path="res://Characters/Chef_Pier_idle_anim_16x16.png" id="2_wpdfn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lwu5k"]
+radius = 16.0312
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lb5ex"]
+atlas = ExtResource("2_wpdfn")
+region = Rect2(288, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03l0j"]
+atlas = ExtResource("2_wpdfn")
+region = Rect2(304, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_086cg"]
+atlas = ExtResource("2_wpdfn")
+region = Rect2(320, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7p0xi"]
+atlas = ExtResource("2_wpdfn")
+region = Rect2(336, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uywd2"]
+atlas = ExtResource("2_wpdfn")
+region = Rect2(352, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d25me"]
+atlas = ExtResource("2_wpdfn")
+region = Rect2(368, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3aqmw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lb5ex")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03l0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_086cg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7p0xi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uywd2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d25me")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ntktb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8mj6"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_08f57"]
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[node name="Chef" type="Node2D"]
+script = ExtResource("1_il8n1")
+dialogue = Array[String](["", "Chef: You used to peek into the kitchen like you were learning some secret recipe.", "Player: You made cooking look effortless.", "Chef: There’s a rhythm to it. You have an eye for that sort of thing."])
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_lwu5k")
+
+[node name="Memory11" type="Marker2D" parent="."]
+position = Vector2(-25, -11)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_3aqmw")
+autoplay = "default"
+frame_progress = 0.107034
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_ntktb")
+
+[node name="DialogueBox" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="PanelContainer" type="PanelContainer" parent="DialogueBox"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -105.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_e8mj6")
+
+[node name="Text" type="Label" parent="DialogueBox/PanelContainer"]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Hi! How are you?"
+label_settings = SubResource("LabelSettings_08f57")
+autowrap_mode = 3
+text_direction = 1
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

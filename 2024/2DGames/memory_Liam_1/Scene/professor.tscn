@@ -1,0 +1,133 @@
+[gd_scene load_steps=15 format=3 uid="uid://dk48xakgen31p"]
+
+[ext_resource type="Script" path="res://professor.gd" id="1_vnju7"]
+[ext_resource type="Texture2D" uid="uid://8b2it6mhh4kg" path="res://Characters/Prisoner_3_idle_anim_16x16.png" id="2_6gvlc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5q183"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iwn7g"]
+atlas = ExtResource("2_6gvlc")
+region = Rect2(288, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_daas0"]
+atlas = ExtResource("2_6gvlc")
+region = Rect2(304, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50o0q"]
+atlas = ExtResource("2_6gvlc")
+region = Rect2(320, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2bf5"]
+atlas = ExtResource("2_6gvlc")
+region = Rect2(336, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6sb4"]
+atlas = ExtResource("2_6gvlc")
+region = Rect2(352, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18ps3"]
+atlas = ExtResource("2_6gvlc")
+region = Rect2(368, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8gloj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iwn7g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_daas0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_50o0q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2bf5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6sb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18ps3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_krp7x"]
+radius = 16.0312
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ysnwr"]
+radius = 16.0312
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvred"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_3nxcp"]
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[node name="Professor" type="Node2D"]
+script = ExtResource("1_vnju7")
+dialogue = Array[String](["", "Teacher: You always stayed in the theater, even after everyone left.", "Player: There was a certain energy in the silence.", "Teacher: It’s like you belonged here. Made the place feel alive."])
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_5q183")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_8gloj")
+autoplay = "default"
+frame_progress = 0.94753
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_krp7x")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 32)
+shape = SubResource("CircleShape2D_ysnwr")
+
+[node name="Memory11" type="Marker2D" parent="."]
+position = Vector2(38, 9)
+
+[node name="DialogueBox" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="PanelContainer" type="PanelContainer" parent="DialogueBox"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -105.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_dvred")
+
+[node name="Text" type="Label" parent="DialogueBox/PanelContainer"]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Hi! How are you?"
+label_settings = SubResource("LabelSettings_3nxcp")
+autowrap_mode = 3
+text_direction = 1
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

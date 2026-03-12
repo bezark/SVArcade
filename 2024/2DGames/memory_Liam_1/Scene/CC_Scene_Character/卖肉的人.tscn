@@ -1,0 +1,116 @@
+[gd_scene load_steps=13 format=3 uid="uid://rk1y6mji221i"]
+
+[ext_resource type="Texture2D" uid="uid://2ire2axqcwhv" path="res://Assets/CC_Assets/人物Assets/Butcher_2_idle_anim_16x16.png" id="1_gmt66"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pyk7g"]
+atlas = ExtResource("1_gmt66")
+region = Rect2(288, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ho8o1"]
+atlas = ExtResource("1_gmt66")
+region = Rect2(304, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ok1i4"]
+atlas = ExtResource("1_gmt66")
+region = Rect2(320, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eferc"]
+atlas = ExtResource("1_gmt66")
+region = Rect2(336, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4vj8u"]
+atlas = ExtResource("1_gmt66")
+region = Rect2(352, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ivpg"]
+atlas = ExtResource("1_gmt66")
+region = Rect2(368, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dklfv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pyk7g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ho8o1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ok1i4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eferc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4vj8u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ivpg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d7wqp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a1c1n"]
+radius = 16.0312
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_44h7h"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_mbxxw"]
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dklfv")
+autoplay = "default"
+frame_progress = 0.666586
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_d7wqp")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_a1c1n")
+
+[node name="DialogueBox" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="PanelContainer" type="PanelContainer" parent="DialogueBox"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -53.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_44h7h")
+
+[node name="Text" type="Label" parent="DialogueBox/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Love you!"
+label_settings = SubResource("LabelSettings_mbxxw")
+
+[node name="Memory11" type="Marker2D" parent="."]
+position = Vector2(38, 9)

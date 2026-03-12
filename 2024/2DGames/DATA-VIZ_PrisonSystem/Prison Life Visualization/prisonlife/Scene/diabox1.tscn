@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://qeu5g0uehw61"]
+
+[ext_resource type="Script" path="res://Script/diabox.gd" id="1_jl7ia"]
+[ext_resource type="FontFile" uid="uid://qccqn5puw4gx" path="res://Assets/arts/fonts/PixelOperator8.ttf" id="2_vwu6k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tu0am"]
+size = Vector2(46.5723, 46.6492)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ffbyr"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 5.0
+expand_margin_top = 10.0
+expand_margin_right = 5.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_0sx2u"]
+font = ExtResource("2_vwu6k")
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="box" type="Node2D"]
+script = ExtResource("1_jl7ia")
+dialogue = Array[String](["", "At 1:30 am, I’m jarred awake in my cell by an officer wielding the brightest flashlight in the world.  ", "He gives me 10 minutes to throw on some clothes, searches me thoroughly. "])
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(0.507813, 0.507813)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(101.908, -166.508)
+scale = Vector2(10, 10)
+shape = SubResource("RectangleShape2D_tu0am")
+
+[node name="diabox" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="PanelContainer" type="PanelContainer" parent="diabox"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -32.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_ffbyr")
+
+[node name="text" type="Label" parent="diabox/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "1:30 am"
+label_settings = SubResource("LabelSettings_0sx2u")
+autowrap_mode = 2
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

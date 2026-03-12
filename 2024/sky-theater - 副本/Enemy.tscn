@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://cnsrfidb66kbe"]
+
+[ext_resource type="Script" path="res://enemy.gd" id="1_bia6s"]
+[ext_resource type="Texture2D" uid="uid://bq07trta4cl25" path="res://character/enemy.png" id="1_yic7a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yf8am"]
+radius = 30.0167
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpfge"]
+atlas = ExtResource("1_yic7a")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwdgb"]
+atlas = ExtResource("1_yic7a")
+region = Rect2(500, 0, 500, 500)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ateeh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lpfge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwdgb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_bia6s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_yf8am")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.1725, 0.1725)
+sprite_frames = SubResource("SpriteFrames_ateeh")
+frame_progress = 0.407786
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

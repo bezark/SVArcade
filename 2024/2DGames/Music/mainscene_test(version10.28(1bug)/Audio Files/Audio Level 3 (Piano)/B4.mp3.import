@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://baojjwea5epl8"
+path="res://.godot/imported/B4.mp3-9eee356beba63cd9ba9dd7ecdc6a24d5.mp3str"
+
+[deps]
+
+source_file="res://Audio Files/Audio Level 3 (Piano)/B4.mp3"
+dest_files=["res://.godot/imported/B4.mp3-9eee356beba63cd9ba9dd7ecdc6a24d5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

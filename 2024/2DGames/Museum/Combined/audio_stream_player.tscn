@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://kfagyo3jxb5t"]
+
+[ext_resource type="AudioStream" uid="uid://com66t43j7umk" path="res://assests/retro-gaming-248421.mp3" id="1_08m31"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_08m31")
+autoplay = true

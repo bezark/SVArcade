@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5jbmeafg5020"]
+
+[ext_resource type="Script" path="res://scripts/disappearing_object.gd" id="1_68yyl"]
+[ext_resource type="Texture2D" uid="uid://dhy6ak5d4mye5" path="res://asset/own art assets/breakable.png" id="2_2krc7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cd534"]
+size = Vector2(30.5, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3i80t"]
+size = Vector2(103.481, 129.167)
+
+[node name="DisappearingObject" type="StaticBody2D"]
+visibility_layer = 2
+collision_mask = 2
+script = ExtResource("1_68yyl")
+
+[node name="block" type="CollisionShape2D" parent="."]
+visibility_layer = 2
+position = Vector2(0.75, -0.5)
+shape = SubResource("RectangleShape2D_cd534")
+
+[node name="Area2D" type="Area2D" parent="block"]
+position = Vector2(0, 0.25)
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="block/Area2D"]
+visibility_layer = 2
+z_index = 1
+position = Vector2(0.25, -0.749994)
+scale = Vector2(0.484297, 0.484297)
+texture = ExtResource("2_2krc7")
+
+[node name="area" type="CollisionShape2D" parent="block/Area2D"]
+visibility_layer = 2
+position = Vector2(29.75, -0.25002)
+scale = Vector2(0.241589, 0.24)
+shape = SubResource("RectangleShape2D_3i80t")
+
+[connection signal="body_entered" from="block/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="block/Area2D" to="block/Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="block/Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_exited" from="block/Area2D" to="block/Area2D" method="_on_body_exited"]

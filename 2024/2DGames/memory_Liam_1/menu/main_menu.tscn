@@ -1,0 +1,87 @@
+[gd_scene load_steps=5 format=3 uid="uid://xa05helpa17y"]
+
+[ext_resource type="Texture2D" uid="uid://33fvp6rl65in" path="res://menu/6d48058534139944250c5dde78eb506a.jpg" id="1_3n1mw"]
+[ext_resource type="Script" path="res://menu/main_menu.gd" id="1_cbtjb"]
+
+[sub_resource type="SystemFont" id="SystemFont_eimhr"]
+font_names = PackedStringArray("PP NeueBit")
+subpixel_positioning = 0
+
+[sub_resource type="SystemFont" id="SystemFont_weyap"]
+font_names = PackedStringArray("PP NeueBit")
+font_weight = 600
+subpixel_positioning = 0
+
+[node name="Main_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cbtjb")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_3n1mw")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 80
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.529672, 0.533596, 0.927918, 1)
+theme_override_colors/font_shadow_color = Color(0.294585, 0.142599, 0.398756, 1)
+theme_override_colors/font_outline_color = Color(0.416563, 0.0321551, 0.350921, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("SystemFont_eimhr")
+theme_override_font_sizes/font_size = 168
+text = "MEMORY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 142
+alignment = 1
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Start_Buttom" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(220, 88)
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0.965294, 0.000245082, 0.840141, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.852958, 0.162223, 0.492335, 1)
+theme_override_fonts/font = SubResource("SystemFont_weyap")
+theme_override_font_sizes/font_size = 68
+text = "START"

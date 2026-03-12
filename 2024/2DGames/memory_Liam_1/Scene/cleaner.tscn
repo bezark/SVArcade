@@ -1,0 +1,203 @@
+[gd_scene load_steps=25 format=3 uid="uid://mk30noi1uf0c"]
+
+[ext_resource type="Script" path="res://Script/cleaner (2).gd" id="1_t3aii"]
+[ext_resource type="Texture2D" uid="uid://bhktqyb7i1m8v" path="res://Assets/CC_Assets/人物Assets/Cleaner_boy_clean_16x16.png" id="2_3wqra"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6vxgp"]
+radius = 11.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3b28j"]
+atlas = ExtResource("2_3wqra")
+region = Rect2(0, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ro2pk"]
+atlas = ExtResource("2_3wqra")
+region = Rect2(16, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1lekl"]
+atlas = ExtResource("2_3wqra")
+region = Rect2(32, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xx1h"]
+atlas = ExtResource("2_3wqra")
+region = Rect2(48, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p31yq"]
+atlas = ExtResource("2_3wqra")
+region = Rect2(64, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrjs2"]
+atlas = ExtResource("2_3wqra")
+region = Rect2(80, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vmabe"]
+atlas = ExtResource("2_3wqra")
+region = Rect2(96, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1y7v"]
+atlas = ExtResource("2_3wqra")
+region = Rect2(112, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihcby"]
+atlas = ExtResource("2_3wqra")
+region = Rect2(128, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pr17y"]
+atlas = ExtResource("2_3wqra")
+region = Rect2(144, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxw2v"]
+atlas = ExtResource("2_3wqra")
+region = Rect2(160, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_scc6u"]
+atlas = ExtResource("2_3wqra")
+region = Rect2(176, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_raahw"]
+atlas = ExtResource("2_3wqra")
+region = Rect2(192, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxt8h"]
+atlas = ExtResource("2_3wqra")
+region = Rect2(208, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1di7"]
+atlas = ExtResource("2_3wqra")
+region = Rect2(224, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypvdn"]
+atlas = ExtResource("2_3wqra")
+region = Rect2(240, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7pvn"]
+atlas = ExtResource("2_3wqra")
+region = Rect2(256, 0, 16, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kml2y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3b28j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ro2pk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1lekl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xx1h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p31yq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrjs2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vmabe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1y7v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihcby")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pr17y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxw2v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_scc6u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_raahw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxt8h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1di7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ypvdn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g7pvn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_en6dw"]
+radius = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fbtkn"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_jj25p"]
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[node name="Nanny" type="Node2D"]
+script = ExtResource("1_t3aii")
+dialogue = Array[String](["", "Nanny: You always had a knack for finding my hidden sweets.", "Player: But you’d catch me every single time.", "Nanny: I couldn’t help laughing—sneaky as you were, you kept me entertained."])
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_6vxgp")
+
+[node name="Memory11" type="Marker2D" parent="."]
+position = Vector2(-47, 0)
+
+[node name="Cleaner" type="CharacterBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Cleaner"]
+sprite_frames = SubResource("SpriteFrames_kml2y")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cleaner"]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_en6dw")
+
+[node name="DialogueBox" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="PanelContainer" type="PanelContainer" parent="DialogueBox"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -105.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_fbtkn")
+
+[node name="Text" type="Label" parent="DialogueBox/PanelContainer"]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Are you ok, my darling?"
+label_settings = SubResource("LabelSettings_jj25p")
+autowrap_mode = 3
+text_direction = 1
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

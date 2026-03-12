@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dn5g6wityd1xa"]
+
+[ext_resource type="PackedScene" uid="uid://dhtbx8kgfm7wc" path="res://Scene/fish_killer.tscn" id="1_74ek3"]
+
+[node name="Fishmonger_2" instance=ExtResource("1_74ek3")]
+dialogue = Array[String](["", "Fishmonger: You’d linger, watching us work even after your family moved on.", "Player: This place had a calmness to it.", "Fishmonger: Only those who truly look notice that. It’s rare."])
+
+[node name="Memory11" parent="." index="2"]
+position = Vector2(-32, 2)
+
+[node name="Text" parent="DialogueBox/PanelContainer" index="0"]
+text = "Hi! How are you?"

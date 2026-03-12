@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4hnou7gxytmy"]
+
+[ext_resource type="Texture2D" uid="uid://b85dyuvrar7fk" path="res://Assets/hidden Legacy Fantay - Lost Glades/Assets/Tiles.png" id="1_a7wor"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_joq20"]
+size = Vector2(49, 27)
+
+[node name="platform h" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 0)
+texture = ExtResource("1_a7wor")
+region_enabled = true
+region_rect = Rect2(0, 133, 49, 27)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 0.5)
+shape = SubResource("RectangleShape2D_joq20")

@@ -1,0 +1,102 @@
+[gd_scene load_steps=14 format=3 uid="uid://bvmk16qgutnow"]
+
+[ext_resource type="Texture2D" uid="uid://cbq724w6n72ac" path="res://scene/Level2Scene1.png" id="1_sqxe3"]
+[ext_resource type="PackedScene" uid="uid://cd4wh7vd3nct1" path="res://you.tscn" id="2_fbkiv"]
+[ext_resource type="AudioStream" uid="uid://boefjhwm41j6j" path="res://BGM/relaxing-piano-music-272714.mp3" id="2_genew"]
+[ext_resource type="Script" path="res://changescene5.gd" id="3_o0wpj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qwov0"]
+size = Vector2(1986, 181)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bep0e"]
+size = Vector2(275, 16.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6yqsj"]
+size = Vector2(118.125, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_luman"]
+size = Vector2(218.5, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ew41y"]
+size = Vector2(130, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_86rcr"]
+size = Vector2(73, 608)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_42eoq"]
+size = Vector2(72, 632)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ns0wc"]
+size = Vector2(270, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lj024"]
+size = Vector2(91, 165.5)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(3.33328, 0.999977)
+scale = Vector2(0.605555, 0.605555)
+texture = ExtResource("1_sqxe3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-31, 324)
+shape = SubResource("RectangleShape2D_qwov0")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(469.5, -21.25)
+shape = SubResource("RectangleShape2D_bep0e")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(23, 47)
+shape = SubResource("RectangleShape2D_6yqsj")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-317, 45)
+shape = SubResource("RectangleShape2D_6yqsj")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(210, -27)
+shape = SubResource("RectangleShape2D_6yqsj")
+
+[node name="table" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-571, 137)
+shape = SubResource("RectangleShape2D_luman")
+
+[node name="platform" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-569, -13)
+shape = SubResource("RectangleShape2D_ew41y")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-615.5, -61)
+shape = SubResource("RectangleShape2D_86rcr")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(622, -24)
+shape = SubResource("RectangleShape2D_42eoq")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(470, 222)
+shape = SubResource("RectangleShape2D_ns0wc")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="StaticBody2D"]
+stream = ExtResource("2_genew")
+volume_db = 7.429
+autoplay = true
+
+[node name="you" parent="." instance=ExtResource("2_fbkiv")]
+position = Vector2(-55, -4)
+
+[node name="Area2D" type="Area2D" parent="." groups=["player"]]
+script = ExtResource("3_o0wpj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(453, -120)
+shape = SubResource("RectangleShape2D_lj024")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

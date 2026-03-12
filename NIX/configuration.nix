@@ -108,9 +108,13 @@ in
     xset -dpms
     unclutter -idle 0 &
 
-    # Import assets then launch
+    # Import assets then launch in a restart loop
+    # If Godot crashes (bad PCK, etc.), wait briefly and relaunch
     ${pkgs.godot_4}/bin/godot4 --import --path "${repo}"
-    exec ${pkgs.godot_4}/bin/godot4 --path "${repo}"
+    while true; do
+      ${pkgs.godot_4}/bin/godot4 --path "${repo}"
+      sleep 2
+    done &
   '';
 
   ################################################################################

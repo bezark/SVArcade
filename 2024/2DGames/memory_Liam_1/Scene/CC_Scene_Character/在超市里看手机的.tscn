@@ -1,0 +1,88 @@
+[gd_scene load_steps=13 format=3 uid="uid://cpt73efxa2qku"]
+
+[ext_resource type="Texture2D" uid="uid://b6kdx72ftx2by" path="res://人物动画/Adam_phone_16x16.png" id="1_fsomq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shdvx"]
+atlas = ExtResource("1_fsomq")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0s77o"]
+atlas = ExtResource("1_fsomq")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vqgx"]
+atlas = ExtResource("1_fsomq")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3jha"]
+atlas = ExtResource("1_fsomq")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgfdm"]
+atlas = ExtResource("1_fsomq")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2e20"]
+atlas = ExtResource("1_fsomq")
+region = Rect2(80, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0fou"]
+atlas = ExtResource("1_fsomq")
+region = Rect2(96, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pitff"]
+atlas = ExtResource("1_fsomq")
+region = Rect2(112, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12y6u"]
+atlas = ExtResource("1_fsomq")
+region = Rect2(128, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ig4gt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shdvx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0s77o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6vqgx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3jha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgfdm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2e20")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0fou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pitff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12y6u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ix8ux"]
+radius = 7.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ig4gt")
+autoplay = "default"
+frame_progress = 0.508221
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7)
+shape = SubResource("CircleShape2D_ix8ux")

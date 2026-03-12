@@ -1,0 +1,202 @@
+[gd_scene load_steps=25 format=3 uid="uid://dbfbfwnmyjusd"]
+
+[ext_resource type="Script" path="res://Script/diabox2_30.gd" id="1_jjfpb"]
+[ext_resource type="FontFile" uid="uid://qccqn5puw4gx" path="res://Assets/arts/fonts/PixelOperator8.ttf" id="2_dlafm"]
+[ext_resource type="Texture2D" uid="uid://clgg2dvc3mrwi" path="res://Assets/arts/Kiwi.png" id="3_o0rwd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tu0am"]
+size = Vector2(37.8092, 38.7938)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ffbyr"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 5.0
+expand_margin_top = 10.0
+expand_margin_right = 5.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_0sx2u"]
+font = ExtResource("2_dlafm")
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70fag"]
+atlas = ExtResource("3_o0rwd")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5u2w"]
+atlas = ExtResource("3_o0rwd")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t78dh"]
+atlas = ExtResource("3_o0rwd")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ja0i4"]
+atlas = ExtResource("3_o0rwd")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjkkc"]
+atlas = ExtResource("3_o0rwd")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4f6f3"]
+atlas = ExtResource("3_o0rwd")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_68emg"]
+atlas = ExtResource("3_o0rwd")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qer55"]
+atlas = ExtResource("3_o0rwd")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0ft8"]
+atlas = ExtResource("3_o0rwd")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rsoha"]
+atlas = ExtResource("3_o0rwd")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55p7k"]
+atlas = ExtResource("3_o0rwd")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0wgv"]
+atlas = ExtResource("3_o0rwd")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s14ab"]
+atlas = ExtResource("3_o0rwd")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrchi"]
+atlas = ExtResource("3_o0rwd")
+region = Rect2(416, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7o0s3"]
+atlas = ExtResource("3_o0rwd")
+region = Rect2(448, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_egu8u"]
+atlas = ExtResource("3_o0rwd")
+region = Rect2(480, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3xuj"]
+atlas = ExtResource("3_o0rwd")
+region = Rect2(512, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hfcbx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70fag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5u2w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t78dh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ja0i4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yjkkc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4f6f3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_68emg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qer55")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u0ft8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rsoha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55p7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0wgv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s14ab")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vrchi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7o0s3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_egu8u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l3xuj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="box2-3" type="Node2D"]
+scale = Vector2(0.60944, 0.730442)
+script = ExtResource("1_jjfpb")
+dialogue = Array[String](["", "My job is raking out of the dirt the footprints that were left by night security patrols and convicts going off to work. ", "I also water and care for the sparse foliage."])
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(0.507813, 0.507813)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(7.51201e-06, -50.2153)
+scale = Vector2(10, 10)
+shape = SubResource("RectangleShape2D_tu0am")
+
+[node name="diabox" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="PanelContainer" type="PanelContainer" parent="diabox"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ffbyr")
+
+[node name="text" type="Label" parent="diabox/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "7:30 am"
+label_settings = SubResource("LabelSettings_0sx2u")
+autowrap_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_hfcbx")
+autoplay = "default"
+frame_progress = 0.912206
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

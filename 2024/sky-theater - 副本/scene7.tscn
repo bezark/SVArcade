@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://b2v5u0oyxx13s"]
+
+[ext_resource type="Texture2D" uid="uid://cafli2tya8hpt" path="res://scene/door3.png" id="1_7axnr"]
+[ext_resource type="PackedScene" uid="uid://cd4wh7vd3nct1" path="res://you.tscn" id="2_c56i1"]
+[ext_resource type="AudioStream" uid="uid://ddiiwk5vg3ueg" path="res://BGM/lost-in-dreams-abstract-chill-downtempo-cinematic-future-beats-270241.mp3" id="2_s47y3"]
+[ext_resource type="Script" path="res://changescene6.gd" id="3_xf46x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1avxg"]
+size = Vector2(1183, 99)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xea7w"]
+size = Vector2(33.5, 761)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cb3xk"]
+size = Vector2(248, 294)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(-1.38885, -0.781235)
+scale = Vector2(0.600405, 0.600405)
+texture = ExtResource("1_7axnr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2.5, 282.5)
+shape = SubResource("RectangleShape2D_1avxg")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(591.25, 3.5)
+shape = SubResource("RectangleShape2D_xea7w")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-595, 3.5)
+shape = SubResource("RectangleShape2D_xea7w")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="StaticBody2D"]
+stream = ExtResource("2_s47y3")
+volume_db = 11.143
+pitch_scale = 0.96
+autoplay = true
+
+[node name="you" parent="." instance=ExtResource("2_c56i1")]
+position = Vector2(716, -4)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-1, 0)
+script = ExtResource("3_xf46x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2, 76)
+shape = SubResource("RectangleShape2D_cb3xk")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

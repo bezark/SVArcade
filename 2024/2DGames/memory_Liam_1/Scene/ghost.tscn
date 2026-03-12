@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://ctxgbg8nhe6sf"]
+
+[ext_resource type="Script" path="res://Script/ghost.gd" id="1_ltdsa"]
+[ext_resource type="Texture2D" uid="uid://c4il7stn2tj6p" path="res://Assets/CC_Assets/人物Assets/Characters_ghosts_48x48.png" id="2_vyb6b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ge8ym"]
+atlas = ExtResource("2_vyb6b")
+region = Rect2(0, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bibp2"]
+atlas = ExtResource("2_vyb6b")
+region = Rect2(48, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8rj2"]
+atlas = ExtResource("2_vyb6b")
+region = Rect2(96, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trk8k"]
+atlas = ExtResource("2_vyb6b")
+region = Rect2(144, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qt020"]
+atlas = ExtResource("2_vyb6b")
+region = Rect2(192, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwypm"]
+atlas = ExtResource("2_vyb6b")
+region = Rect2(240, 0, 48, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6kvuf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ge8ym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bibp2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8rj2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trk8k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qt020")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwypm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_plq0i"]
+radius = 21.095
+
+[node name="Ghost" type="Node2D"]
+script = ExtResource("1_ltdsa")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_6kvuf")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(1, 5)
+shape = SubResource("CircleShape2D_plq0i")

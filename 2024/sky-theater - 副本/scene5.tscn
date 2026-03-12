@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://vu4i6ae4ive8"]
+
+[ext_resource type="Texture2D" uid="uid://bmx4sk7iar0xc" path="res://scene/door2.png" id="1_55lus"]
+[ext_resource type="AudioStream" uid="uid://ddiiwk5vg3ueg" path="res://BGM/lost-in-dreams-abstract-chill-downtempo-cinematic-future-beats-270241.mp3" id="2_nvwig"]
+[ext_resource type="PackedScene" uid="uid://cd4wh7vd3nct1" path="res://you.tscn" id="2_ujjf6"]
+[ext_resource type="Script" path="res://chagescene4.gd" id="3_juhqv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uenm7"]
+size = Vector2(1930.25, 171.056)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3qj5l"]
+size = Vector2(117, 684)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o7yum"]
+size = Vector2(94, 667)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iunnt"]
+size = Vector2(185, 265)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="StaticBody2D"]
+
+[node name="Door2" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(-0.999971, 3)
+scale = Vector2(0.596296, 0.596296)
+texture = ExtResource("1_55lus")
+
+[node name="floor" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-0.499969, 289)
+scale = Vector2(0.596296, 0.596296)
+shape = SubResource("RectangleShape2D_uenm7")
+
+[node name="wall_right" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(633.5, 3)
+shape = SubResource("RectangleShape2D_3qj5l")
+
+[node name="wall_left" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-617, 8.5)
+shape = SubResource("RectangleShape2D_o7yum")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="StaticBody2D"]
+stream = ExtResource("2_nvwig")
+volume_db = 10.214
+pitch_scale = 0.96
+autoplay = true
+
+[node name="you" parent="." instance=ExtResource("2_ujjf6")]
+position = Vector2(-94, 2)
+
+[node name="Area2D" type="Area2D" parent="." groups=["player"]]
+script = ExtResource("3_juhqv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["player"]]
+position = Vector2(321.5, 117.5)
+shape = SubResource("RectangleShape2D_iunnt")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

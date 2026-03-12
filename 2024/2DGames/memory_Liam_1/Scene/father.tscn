@@ -1,0 +1,126 @@
+[gd_scene load_steps=14 format=3 uid="uid://cuneahvutcsb2"]
+
+[ext_resource type="Script" path="res://father.gd" id="1_hqlmd"]
+[ext_resource type="Texture2D" uid="uid://ddo3udtvuypeq" path="res://Characters/Ash_idle_anim_16x16.png" id="2_rw8km"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jgfjk"]
+atlas = ExtResource("2_rw8km")
+region = Rect2(288, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27r8i"]
+atlas = ExtResource("2_rw8km")
+region = Rect2(304, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sf6f3"]
+atlas = ExtResource("2_rw8km")
+region = Rect2(320, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4pl6"]
+atlas = ExtResource("2_rw8km")
+region = Rect2(336, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aulfo"]
+atlas = ExtResource("2_rw8km")
+region = Rect2(352, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4n5w"]
+atlas = ExtResource("2_rw8km")
+region = Rect2(368, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sesgq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jgfjk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27r8i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sf6f3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4pl6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aulfo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f4n5w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y6iha"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g7fk4"]
+radius = 16.0312
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ufjy"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_g6rkn"]
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[node name="Father" type="Node2D"]
+script = ExtResource("1_hqlmd")
+dialogue = Array[String](["", "Father: The day we moved in here, you explored every corner like an adventurer.", "You: I wanted to claim every inch as my own. It felt like a new world for all of us.", "Father: It was. A fresh start, something we all needed."])
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_sesgq")
+autoplay = "default"
+frame_progress = 0.949856
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_y6iha")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_g7fk4")
+
+[node name="DialogueBox" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="PanelContainer" type="PanelContainer" parent="DialogueBox"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -105.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7ufjy")
+
+[node name="Text" type="Label" parent="DialogueBox/PanelContainer"]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Hi, Babe."
+label_settings = SubResource("LabelSettings_g6rkn")
+autowrap_mode = 3
+text_direction = 1
+
+[node name="Memory11" type="Marker2D" parent="."]
+position = Vector2(38, 9)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

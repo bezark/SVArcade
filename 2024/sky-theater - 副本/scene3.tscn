@@ -1,0 +1,116 @@
+[gd_scene load_steps=17 format=3 uid="uid://d31wtvf5lbpd1"]
+
+[ext_resource type="Texture2D" uid="uid://qfeax1vky2ik" path="res://scene/Level1Scene1.png" id="1_ya0r7"]
+[ext_resource type="PackedScene" uid="uid://cd4wh7vd3nct1" path="res://you.tscn" id="2_6f8mi"]
+[ext_resource type="AudioStream" uid="uid://boefjhwm41j6j" path="res://BGM/relaxing-piano-music-272714.mp3" id="2_a8dou"]
+[ext_resource type="Script" path="res://changescene3.gd" id="3_sp7jx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n0rdx"]
+size = Vector2(1152, 93)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jp6pc"]
+size = Vector2(78, 652)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_luy5r"]
+size = Vector2(88, 652)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qsfcc"]
+size = Vector2(142, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wcrl8"]
+size = Vector2(82, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_28k3i"]
+size = Vector2(63, 121)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5nog2"]
+size = Vector2(110.5, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7w1lq"]
+size = Vector2(118, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fvp8t"]
+size = Vector2(146.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ssxv"]
+size = Vector2(129, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tl7sk"]
+size = Vector2(113, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m4vo4"]
+size = Vector2(80, 140)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Door1Scene1" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(0, 2)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_ya0r7")
+
+[node name="Camera2D" type="Camera2D" parent="StaticBody2D"]
+position = Vector2(4, -1.66893e-06)
+
+[node name="floor" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1, 279.5)
+shape = SubResource("RectangleShape2D_n0rdx")
+
+[node name="wall_left" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-614, 5)
+shape = SubResource("RectangleShape2D_jp6pc")
+
+[node name="wall_right" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(622, 1)
+shape = SubResource("RectangleShape2D_luy5r")
+
+[node name="table2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(509, 150.5)
+shape = SubResource("RectangleShape2D_qsfcc")
+
+[node name="bucket" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(322, 103.5)
+shape = SubResource("RectangleShape2D_wcrl8")
+
+[node name="bucket2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-498.5, 176.5)
+shape = SubResource("RectangleShape2D_28k3i")
+
+[node name="platform1" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-370.25, -38)
+shape = SubResource("RectangleShape2D_5nog2")
+
+[node name="platform2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-81, 70.5)
+shape = SubResource("RectangleShape2D_7w1lq")
+
+[node name="platform3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(429.75, -67)
+shape = SubResource("RectangleShape2D_fvp8t")
+
+[node name="table1" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-287.5, 160.5)
+shape = SubResource("RectangleShape2D_3ssxv")
+
+[node name="platform4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(132, -2.5)
+shape = SubResource("RectangleShape2D_tl7sk")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="StaticBody2D"]
+stream = ExtResource("2_a8dou")
+volume_db = 3.714
+autoplay = true
+
+[node name="you" parent="." instance=ExtResource("2_6f8mi")]
+position = Vector2(-83, 0)
+
+[node name="Area2D" type="Area2D" parent="." groups=["player"]]
+script = ExtResource("3_sp7jx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(432, -147)
+shape = SubResource("RectangleShape2D_m4vo4")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

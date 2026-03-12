@@ -1,0 +1,147 @@
+[gd_scene load_steps=17 format=3 uid="uid://bm0fprr5f7nph"]
+
+[ext_resource type="Script" path="res://Script/casher_1.gd" id="1_kjw8c"]
+[ext_resource type="Texture2D" uid="uid://bh3xxftcfkd6p" path="res://Assets/CC_Assets/人物Assets/Conference_man_phone_16x16.png" id="2_greko"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4358l"]
+atlas = ExtResource("2_greko")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2to03"]
+atlas = ExtResource("2_greko")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4k87"]
+atlas = ExtResource("2_greko")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eir1n"]
+atlas = ExtResource("2_greko")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w12dq"]
+atlas = ExtResource("2_greko")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6o64l"]
+atlas = ExtResource("2_greko")
+region = Rect2(80, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxclr"]
+atlas = ExtResource("2_greko")
+region = Rect2(96, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_attfg"]
+atlas = ExtResource("2_greko")
+region = Rect2(112, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ama4a"]
+atlas = ExtResource("2_greko")
+region = Rect2(128, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_etwty"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4358l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2to03")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4k87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eir1n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w12dq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6o64l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxclr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_attfg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ama4a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_khxrg"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hi7rq"]
+radius = 16.0312
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_amnsv"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_bsng5"]
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[node name="Casher_1" type="Node2D"]
+script = ExtResource("1_kjw8c")
+dialogue = Array[String](["", "Cashier: You’d come by with your family every Saturday. I got so used to seeing you all.", "Player: The routine kept us close. Faces became familiar.", "Cashier: That kind of regularity is rare, but it brightened up this place."])
+
+[node name="Casher_1" type="CharacterBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Casher_1"]
+sprite_frames = SubResource("SpriteFrames_etwty")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Casher_1"]
+position = Vector2(0, 7)
+shape = SubResource("CircleShape2D_khxrg")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 47)
+shape = SubResource("CircleShape2D_hi7rq")
+
+[node name="Memory11" type="Marker2D" parent="."]
+position = Vector2(-42, 23)
+
+[node name="DialogueBox" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="PanelContainer" type="PanelContainer" parent="DialogueBox"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -105.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_amnsv")
+
+[node name="Text" type="Label" parent="DialogueBox/PanelContainer"]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Hi! How are you?"
+label_settings = SubResource("LabelSettings_bsng5")
+autowrap_mode = 3
+text_direction = 1
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

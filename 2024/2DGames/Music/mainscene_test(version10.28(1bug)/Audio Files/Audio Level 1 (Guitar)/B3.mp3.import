@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ch5uagnib583t"
+path="res://.godot/imported/B3.mp3-19bdfa9ea031cc911f60366211567605.mp3str"
+
+[deps]
+
+source_file="res://Audio Files/Audio Level 1 (Guitar)/B3.mp3"
+dest_files=["res://.godot/imported/B3.mp3-19bdfa9ea031cc911f60366211567605.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

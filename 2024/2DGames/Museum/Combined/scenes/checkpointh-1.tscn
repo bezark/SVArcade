@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://q8q3pp6vwmq7"]
+
+[ext_resource type="Script" path="res://Script/checkpointh_1.gd" id="1_rhp0p"]
+[ext_resource type="Texture2D" uid="uid://4mgktj05afto" path="res://Assets/Arm Reliquary.png" id="2_3jwy2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p6nv6"]
+radius = 6.0
+
+[node name="Checkpoint levelh-1" type="Node2D"]
+script = ExtResource("1_rhp0p")
+
+[node name="ArmReliquary" type="Sprite2D" parent="."]
+position = Vector2(2.1875, -5.1875)
+scale = Vector2(0.0734863, 0.0734863)
+texture = ExtResource("2_3jwy2")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2, 1)
+shape = SubResource("CircleShape2D_p6nv6")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

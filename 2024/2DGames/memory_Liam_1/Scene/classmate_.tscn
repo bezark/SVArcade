@@ -1,0 +1,209 @@
+[gd_scene load_steps=26 format=3 uid="uid://ctthka1r6j6re"]
+
+[ext_resource type="Script" path="res://classmate_.gd" id="1_85clp"]
+[ext_resource type="Texture2D" uid="uid://cbll0hxorj6w1" path="res://Characters/Samuel_read_16x16.png" id="2_4jipn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6i420"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ki8c8"]
+atlas = ExtResource("2_4jipn")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3p22i"]
+atlas = ExtResource("2_4jipn")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8bart"]
+atlas = ExtResource("2_4jipn")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78whr"]
+atlas = ExtResource("2_4jipn")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8fkx"]
+atlas = ExtResource("2_4jipn")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6q5q"]
+atlas = ExtResource("2_4jipn")
+region = Rect2(80, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8aww"]
+atlas = ExtResource("2_4jipn")
+region = Rect2(96, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jy73b"]
+atlas = ExtResource("2_4jipn")
+region = Rect2(112, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wg41"]
+atlas = ExtResource("2_4jipn")
+region = Rect2(128, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k32ir"]
+atlas = ExtResource("2_4jipn")
+region = Rect2(144, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_si11i"]
+atlas = ExtResource("2_4jipn")
+region = Rect2(160, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65ol3"]
+atlas = ExtResource("2_4jipn")
+region = Rect2(176, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a060b"]
+atlas = ExtResource("2_4jipn")
+region = Rect2(192, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjtpb"]
+atlas = ExtResource("2_4jipn")
+region = Rect2(208, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojv3o"]
+atlas = ExtResource("2_4jipn")
+region = Rect2(224, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_234w8"]
+atlas = ExtResource("2_4jipn")
+region = Rect2(240, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_is6ci"]
+atlas = ExtResource("2_4jipn")
+region = Rect2(256, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jx4k1"]
+atlas = ExtResource("2_4jipn")
+region = Rect2(272, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x77pg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ki8c8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3p22i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8bart")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_78whr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i8fkx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6q5q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8aww")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jy73b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5wg41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k32ir")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_si11i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65ol3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a060b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hjtpb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ojv3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_234w8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_is6ci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jx4k1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e1x0g"]
+radius = 16.0312
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rp4wn"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_xlkg4"]
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[node name="Classmate_" type="Node2D"]
+script = ExtResource("1_85clp")
+dialogue = Array[String](["", "Classmate: We wandered through these halls on our first day, didn’t know where anything was.", "Player: Ended up in the principal’s office, of all places.", "Classmate: They thought we were troublemakers!"])
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_6i420")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_x77pg")
+autoplay = "default"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_e1x0g")
+
+[node name="Memory11" type="Marker2D" parent="."]
+position = Vector2(38, 9)
+
+[node name="DialogueBox" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="PanelContainer" type="PanelContainer" parent="DialogueBox"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -105.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rp4wn")
+
+[node name="Text" type="Label" parent="DialogueBox/PanelContainer"]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "What's going on man?"
+label_settings = SubResource("LabelSettings_xlkg4")
+autowrap_mode = 3
+text_direction = 1
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

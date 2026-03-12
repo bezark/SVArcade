@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyxe602jd37ly"]
+
+[ext_resource type="Texture2D" uid="uid://cqub45drex7b3" path="res://assests/Assets/hospital.jpg" id="1_dwimd"]
+
+[node name="hospital" type="Node2D"]
+
+[node name="Hospital" type="Sprite2D" parent="."]
+position = Vector2(-6, -381)
+scale = Vector2(0.227433, 0.227433)
+texture = ExtResource("1_dwimd")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-6.99994, -333)
+scale = Vector2(0.484848, 0.484848)

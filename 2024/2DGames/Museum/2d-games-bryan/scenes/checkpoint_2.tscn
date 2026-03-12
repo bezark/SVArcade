@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://g7w2w7lxlibl"]
+
+[ext_resource type="Script" path="res://scripts/checkpoint_2.gd" id="1_eimiw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6xbr1"]
+radius = 21.0238
+
+[node name="checkpoint2" type="Node2D"]
+script = ExtResource("1_eimiw")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_6xbr1")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

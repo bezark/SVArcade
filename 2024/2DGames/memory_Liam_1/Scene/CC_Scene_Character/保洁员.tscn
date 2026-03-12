@@ -1,0 +1,144 @@
+[gd_scene load_steps=21 format=3 uid="uid://c5taled8kelw4"]
+
+[ext_resource type="Texture2D" uid="uid://bkpjsn1juvggc" path="res://人物动画/Cleaner_girl_clean_16x16.png" id="1_gaggt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ukmv"]
+atlas = ExtResource("1_gaggt")
+region = Rect2(0, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wops"]
+atlas = ExtResource("1_gaggt")
+region = Rect2(16, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjgmg"]
+atlas = ExtResource("1_gaggt")
+region = Rect2(32, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nc6mt"]
+atlas = ExtResource("1_gaggt")
+region = Rect2(48, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3v2l"]
+atlas = ExtResource("1_gaggt")
+region = Rect2(64, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2rio"]
+atlas = ExtResource("1_gaggt")
+region = Rect2(80, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3vcb"]
+atlas = ExtResource("1_gaggt")
+region = Rect2(96, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qi3j5"]
+atlas = ExtResource("1_gaggt")
+region = Rect2(112, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xx42"]
+atlas = ExtResource("1_gaggt")
+region = Rect2(128, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mv8fm"]
+atlas = ExtResource("1_gaggt")
+region = Rect2(144, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lue7a"]
+atlas = ExtResource("1_gaggt")
+region = Rect2(160, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ratgp"]
+atlas = ExtResource("1_gaggt")
+region = Rect2(176, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_atg3t"]
+atlas = ExtResource("1_gaggt")
+region = Rect2(192, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hsx8"]
+atlas = ExtResource("1_gaggt")
+region = Rect2(208, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ayi2"]
+atlas = ExtResource("1_gaggt")
+region = Rect2(224, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixcn1"]
+atlas = ExtResource("1_gaggt")
+region = Rect2(240, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_camtq"]
+atlas = ExtResource("1_gaggt")
+region = Rect2(256, 0, 16, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_347mu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ukmv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8wops")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjgmg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nc6mt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3v2l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2rio")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u3vcb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qi3j5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xx42")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mv8fm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lue7a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ratgp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_atg3t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hsx8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ayi2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ixcn1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_camtq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aiyle"]
+radius = 5.0
+
+[node name="收营员" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_347mu")
+autoplay = "default"
+frame_progress = 0.545902
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_aiyle")

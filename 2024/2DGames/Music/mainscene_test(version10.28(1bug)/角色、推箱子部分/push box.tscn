@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4hevxxo358dp"]
+
+[ext_resource type="Texture2D" uid="uid://dykc7sirb5den" path="res://asset/Pixel Adventure 1/Free/Items/Boxes/Box2/Idle.png" id="1_3tx5a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ieeog"]
+size = Vector2(31, 31)
+
+[node name="pushbox" type="RigidBody2D" groups=["pushboxes"]]
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["pushboxes"]]
+position = Vector2(22.5833, -19.5)
+scale = Vector2(1.625, 1.625)
+texture = ExtResource("1_3tx5a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["pushboxes"]]
+position = Vector2(22.5, -19.5)
+shape = SubResource("RectangleShape2D_ieeog")

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://drk1aqtekms6s"]
+
+[ext_resource type="Script" path="res://cheackpoint_level_2_final.gd" id="1_momwa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b3etj"]
+size = Vector2(16.5, 26)
+
+[node name="cheackpoint_level2_final" type="Node2D"]
+script = ExtResource("1_momwa")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_b3etj")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://b0xhhp60on1nl"]
+
+[ext_resource type="Texture2D" uid="uid://0s14pua52sy5" path="res://人物动画/animated_grocery_store_butchershop_carcass.png" id="1_h82ao"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkpp3"]
+atlas = ExtResource("1_h82ao")
+region = Rect2(0, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wb1h8"]
+atlas = ExtResource("1_h82ao")
+region = Rect2(16, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btemm"]
+atlas = ExtResource("1_h82ao")
+region = Rect2(32, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7whmd"]
+atlas = ExtResource("1_h82ao")
+region = Rect2(48, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pv10b"]
+atlas = ExtResource("1_h82ao")
+region = Rect2(64, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m35do"]
+atlas = ExtResource("1_h82ao")
+region = Rect2(80, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jgdrd"]
+atlas = ExtResource("1_h82ao")
+region = Rect2(96, 0, 16, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rwrl5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xkpp3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wb1h8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_btemm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7whmd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pv10b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m35do")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jgdrd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rwrl5")
+autoplay = "default"

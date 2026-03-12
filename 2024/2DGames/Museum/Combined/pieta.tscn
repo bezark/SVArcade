@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxdveekvsjsr5"]
+
+[ext_resource type="Script" path="res://pieta.gd" id="1_3lyxc"]
+[ext_resource type="Texture2D" uid="uid://b36kfkfov0s2g" path="res://pieta.png" id="1_660ck"]
+
+[node name="pieta" type="Node2D"]
+script = ExtResource("1_3lyxc")
+
+[node name="Pieta" type="Sprite2D" parent="."]
+position = Vector2(316, 45)
+scale = Vector2(0.0747549, 0.0747549)
+texture = ExtResource("1_660ck")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(315, 250)
+scale = Vector2(0.396459, 0.396459)
+zoom = Vector2(3, 3)
+limit_bottom = 152
+limit_smoothed = true
+
+[node name="Button" type="Button" parent="."]
+offset_left = 353.0
+offset_top = -36.0
+offset_right = 426.0
+offset_bottom = -1.0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

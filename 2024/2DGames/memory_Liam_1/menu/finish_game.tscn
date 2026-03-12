@@ -1,0 +1,105 @@
+[gd_scene load_steps=6 format=3 uid="uid://b6hev54rduxmh"]
+
+[ext_resource type="Texture2D" uid="uid://c0sy2sdx6g25n" path="res://menu/6a8c79638d848dd53672e7287843f3e6.jpg" id="1_nhymg"]
+[ext_resource type="Script" path="res://menu/finish_game.gd" id="1_q8nqd"]
+
+[sub_resource type="SystemFont" id="SystemFont_owt5p"]
+font_names = PackedStringArray("PP NeueBit")
+
+[sub_resource type="SystemFont" id="SystemFont_ahtcp"]
+font_names = PackedStringArray("PP NeueBit")
+hinting = 2
+msdf_pixel_range = 20
+
+[sub_resource type="SystemFont" id="SystemFont_3luyd"]
+font_names = PackedStringArray("PP NeueBit")
+font_weight = 600
+subpixel_positioning = 0
+
+[node name="FinishGame" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q8nqd")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -115.0
+offset_bottom = 281.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_nhymg")
+
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 115.0
+offset_bottom = -277.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Control" type="Control" parent="TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.862892, 0.87348, 0.983768, 1)
+theme_override_colors/font_shadow_color = Color(0.868186, 0.104173, 0.363264, 1)
+theme_override_colors/font_outline_color = Color(0.416563, 0.0321551, 0.350921, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("SystemFont_owt5p")
+theme_override_font_sizes/font_size = 168
+text = "CONGRATS!!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_ahtcp")
+theme_override_font_sizes/font_size = 12
+text = "As you journey through your memories,
+ a mosaic of small yet meaningful moments begins to emerge. 
+Moving into a new home marked a fresh start, with memories of exploring each corner like an adventurer
+ and falling asleep on New Year’s Eve, surrounded by family celebrations. 
+Daily interactions—squabbles over the TV with your brother, 
+teaching your younger sibling to read, and getting lost on the first day of school—
+reflect a close-knit family bond and the warmth of friendship.
+Visits to favorite places, like the cozy cafe and bustling grocery store, 
+bring back scenes of shared laughter, quiet hideaways, and familiar faces.
+ Each interaction weaves together a tapestry of your life, 
+revealing that even the simplest moments held the deepest connections and shaped who you are."
+horizontal_alignment = 1
+
+[node name="Start_Buttom" type="Button" parent="TextureRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1, 88)
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.229, 0.372812, 0.283041, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.965294, 0.000245082, 0.840141, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.852958, 0.162223, 0.492335, 1)
+theme_override_fonts/font = SubResource("SystemFont_3luyd")
+theme_override_font_sizes/font_size = 68
+button_mask = 3
+text = "PLAY AGAIN"
+
+[connection signal="pressed" from="TextureRect/MarginContainer/VBoxContainer/Start_Buttom" to="." method="_on_start_buttom_pressed"]

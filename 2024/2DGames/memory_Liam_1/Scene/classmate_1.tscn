@@ -1,0 +1,124 @@
+[gd_scene load_steps=14 format=3 uid="uid://35tc8c5fpok0"]
+
+[ext_resource type="Script" path="res://classmate_1.gd" id="1_egmig"]
+[ext_resource type="Texture2D" uid="uid://cbujraukwvenx" path="res://Characters/Witch_idle_anim_16x16.png" id="2_onwga"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oldwo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbiq6"]
+atlas = ExtResource("2_onwga")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7m0ce"]
+atlas = ExtResource("2_onwga")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tia0"]
+atlas = ExtResource("2_onwga")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwh5d"]
+atlas = ExtResource("2_onwga")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20ctq"]
+atlas = ExtResource("2_onwga")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkwcy"]
+atlas = ExtResource("2_onwga")
+region = Rect2(80, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l0hc8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbiq6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7m0ce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6tia0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwh5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20ctq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkwcy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h70j1"]
+radius = 12.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wkao2"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_uc3d2"]
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[node name="Classmate_1" type="Node2D"]
+script = ExtResource("1_egmig")
+dialogue = Array[String](["", "Classmate_1: We rehearsed our lines here till we were exhausted.", "Player: Still messed up during the show, though.", "Classmate_1: But the practice was worth it. I think we left an impression."])
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_oldwo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_l0hc8")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_h70j1")
+
+[node name="Memory11" type="Marker2D" parent="."]
+position = Vector2(0, 36)
+
+[node name="DialogueBox" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="PanelContainer" type="PanelContainer" parent="DialogueBox"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -105.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wkao2")
+
+[node name="Text" type="Label" parent="DialogueBox/PanelContainer"]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Hi! How are you?"
+label_settings = SubResource("LabelSettings_uc3d2")
+autowrap_mode = 3
+text_direction = 1
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://djr4na54186m1"]
+
+[ext_resource type="Texture2D" uid="uid://di562ygi7gony" path="res://Assets/CC_Assets/人物Assets/Fishmonger_2_16x16.png" id="1_7sp4p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pnsrd"]
+atlas = ExtResource("1_7sp4p")
+region = Rect2(288, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6dkq4"]
+atlas = ExtResource("1_7sp4p")
+region = Rect2(304, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_boie0"]
+atlas = ExtResource("1_7sp4p")
+region = Rect2(320, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vwtls"]
+atlas = ExtResource("1_7sp4p")
+region = Rect2(336, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjsm0"]
+atlas = ExtResource("1_7sp4p")
+region = Rect2(352, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqa4s"]
+atlas = ExtResource("1_7sp4p")
+region = Rect2(368, 32, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rvbg7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pnsrd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6dkq4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_boie0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vwtls")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjsm0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqa4s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hmku8"]
+radius = 6.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rvbg7")
+autoplay = "default"
+frame_progress = 0.757408
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_hmku8")

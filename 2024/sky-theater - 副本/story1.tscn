@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://c10k60g80d2el"]
+
+[ext_resource type="PackedScene" uid="uid://cd4wh7vd3nct1" path="res://you.tscn" id="1_d8jui"]
+[ext_resource type="Texture2D" uid="uid://dqd6cvav8jdww" path="res://scene/story1.png" id="2_5o8q4"]
+[ext_resource type="Script" path="res://story1.gd" id="2_tvox7"]
+[ext_resource type="AudioStream" uid="uid://d4cintofcs1r8" path="res://BGM/story.mp3" id="4_kp2jm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7gfiw"]
+size = Vector2(1173, 678)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4d1tr"]
+size = Vector2(396, 20)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="you" parent="." instance=ExtResource("1_d8jui")]
+position = Vector2(359, -61)
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_tvox7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3, 0)
+shape = SubResource("RectangleShape2D_7gfiw")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+scale = Vector2(0.599479, 0.599479)
+texture = ExtResource("2_5o8q4")
+
+[node name="Camera2D" type="Camera2D" parent="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(85, 278)
+shape = SubResource("RectangleShape2D_4d1tr")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_kp2jm")
+autoplay = true
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv5t8f8lfuux1"]
+
+[ext_resource type="Script" path="res://snuff.gd" id="1_6dory"]
+[ext_resource type="Texture2D" uid="uid://3wjr08fld78i" path="res://snuff.png" id="1_auxsr"]
+
+[node name="snuff" type="Node2D"]
+script = ExtResource("1_6dory")
+
+[node name="Snuff" type="Sprite2D" parent="."]
+position = Vector2(581, 44)
+scale = Vector2(0.07493, 0.07493)
+texture = ExtResource("1_auxsr")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(580.901, 353.813)
+scale = Vector2(0.396459, 0.396459)
+zoom = Vector2(3, 3)
+limit_bottom = 152
+limit_smoothed = true
+
+[node name="Button" type="Button" parent="."]
+offset_left = 612.0
+offset_top = -37.0
+offset_right = 731.0
+offset_bottom = -1.0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

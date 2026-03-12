@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://oywwrubibvho"
+path="res://.godot/imported/A4.mp3-478da7426e9f9af3a7d19bee76eb3ddb.mp3str"
+
+[deps]
+
+source_file="res://Audio Files/Audio Level 2 (Flute)/A4.mp3"
+dest_files=["res://.godot/imported/A4.mp3-478da7426e9f9af3a7d19bee76eb3ddb.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhuplig1nckvm"]
+
+[ext_resource type="Script" path="res://scenes/bg_scenes_2.gd" id="1_1bla5"]
+[ext_resource type="Texture2D" uid="uid://dbyb271ts3r8c" path="res://Assets/WechatIMG951.jpg" id="1_wyfst"]
+
+[node name="bg_scenes_2" type="Node2D"]
+script = ExtResource("1_1bla5")
+
+[node name="WechatImg951" type="Sprite2D" parent="."]
+position = Vector2(2161, 26)
+scale = Vector2(0.134359, 0.134359)
+texture = ExtResource("1_wyfst")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(2160.9, 249.813)
+scale = Vector2(0.396459, 0.396459)
+zoom = Vector2(3, 3)
+limit_bottom = 152
+limit_smoothed = true
+
+[node name="Button" type="Button" parent="."]
+offset_left = 2210.0
+offset_top = 106.0
+offset_right = 2244.0
+offset_bottom = 117.0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

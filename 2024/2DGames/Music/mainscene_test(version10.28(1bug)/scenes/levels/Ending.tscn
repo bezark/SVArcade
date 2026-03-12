@@ -1,0 +1,90 @@
+[gd_scene load_steps=10 format=3 uid="uid://d0cxkny6r4tkr"]
+
+[ext_resource type="Texture2D" uid="uid://bearpwjg3qhcm" path="res://asset/Background/Background_temple/background.png" id="1_trqgb"]
+[ext_resource type="Texture2D" uid="uid://duo6fa3i56krt" path="res://asset/Background/Background_temple/background2.png" id="2_ghr2q"]
+[ext_resource type="Texture2D" uid="uid://cogoe1eiiwoul" path="res://asset/Background/Background_temple/background3.png" id="3_fvu3a"]
+[ext_resource type="Texture2D" uid="uid://cvwrmuclggqoc" path="res://asset/Background/Background_temple/background4.png" id="4_mgldt"]
+[ext_resource type="Texture2D" uid="uid://bdh72pvv0cmme" path="res://asset/ending_illustration.png" id="5_p6gwn"]
+[ext_resource type="FontFile" uid="uid://crghpnlcrbnu2" path="res://asset/Font File/SeraphonRegular-yYLDY.otf" id="6_eptmh"]
+[ext_resource type="AudioStream" uid="uid://di46ucaj6a4af" path="res://Audio Files/bgm/Win(FF9).mp3" id="7_oxvu1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uc5lt"]
+texture = ExtResource("1_trqgb")
+modulate_color = Color(0.560955, 0.560955, 0.560955, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7765j"]
+font = ExtResource("6_eptmh")
+font_size = 150
+shadow_size = 6
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(8.1, 3.08)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_uc5lt")
+
+[node name="Background" type="Sprite2D" parent="Panel"]
+position = Vector2(664, 290.5)
+scale = Vector2(1.82812, 1.82812)
+texture = ExtResource("1_trqgb")
+
+[node name="Background2" type="Sprite2D" parent="Panel"]
+position = Vector2(575, 416)
+scale = Vector2(1.83738, 1.83738)
+texture = ExtResource("2_ghr2q")
+
+[node name="Background3" type="Sprite2D" parent="Panel"]
+position = Vector2(472.996, 360.123)
+scale = Vector2(1.50391, 1.50391)
+texture = ExtResource("3_fvu3a")
+
+[node name="Background4" type="Sprite2D" parent="Panel"]
+position = Vector2(724, 377)
+scale = Vector2(1.79956, 1.79956)
+texture = ExtResource("4_mgldt")
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel"]
+position = Vector2(576.444, 323.25)
+scale = Vector2(4.8037, 4.8037)
+texture = ExtResource("5_p6gwn")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 45.0
+offset_top = 152.0
+offset_right = 674.0
+offset_bottom = 355.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_fonts/font = ExtResource("6_eptmh")
+theme_override_font_sizes/font_size = 202
+text = "You Win!"
+label_settings = SubResource("LabelSettings_7765j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_oxvu1")
+volume_db = 1.0
+autoplay = true
+attenuation = 0.659754
