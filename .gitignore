@@ -16,3 +16,7 @@ mono_crash.*.json
 
 
 alice.pck
+
+# Oversized PCKs (>100MB GitHub limit) — transfer via SCP
+PCKs/momentum.pck
+PCKs/trolley-problem.pck

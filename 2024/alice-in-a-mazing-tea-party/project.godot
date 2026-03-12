@@ -71,3 +71,8 @@ jump={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep"

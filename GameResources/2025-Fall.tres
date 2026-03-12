@@ -1,0 +1,81 @@
+[gd_resource type="Resource" script_class="ClassProjects" load_steps=16 format=3]
+
+[ext_resource type="Script" path="res://Classes/GameInfo.gd" id="1_gi"]
+[ext_resource type="Script" path="res://Classes/ClassProjects.gd" id="2_cp"]
+[ext_resource type="Texture2D" path="res://Assets/Thumbnails/horror-game.png" id="t_horror"]
+[ext_resource type="Texture2D" path="res://Assets/Thumbnails/blooock.png" id="t_blooock"]
+[ext_resource type="Texture2D" path="res://Assets/Thumbnails/visual-novel.png" id="t_vn"]
+[ext_resource type="Texture2D" path="res://Assets/Thumbnails/the-pet.png" id="t_pet"]
+[ext_resource type="Texture2D" path="res://Assets/Thumbnails/trolley-problem.png" id="t_trolley"]
+[ext_resource type="Texture2D" path="res://Assets/Thumbnails/momentum.png" id="t_momentum"]
+
+[sub_resource type="Resource" id="Resource_horror"]
+resource_name = "Horror Game"
+script = ExtResource("1_gi")
+title = "Horror Game"
+thumbnail = ExtResource("t_horror")
+authors = "Darren Arias-Montesino, Karen Coto, Dorothy Peng, Natalia Rogers"
+pck_file = "res://PCKs/horror-game.pck"
+main_scene = "res://Scenes/title_screen.tscn"
+globals = Array[String](["res://global.gd"])
+clear_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Resource" id="Resource_blooock"]
+resource_name = "Blooock"
+script = ExtResource("1_gi")
+title = "Blooock"
+thumbnail = ExtResource("t_blooock")
+authors = "Dexter Barrett, Kyra Chang, Cong Zhao"
+pck_file = "res://PCKs/blooock.pck"
+main_scene = "res://scenes/world.tscn"
+globals = Array[String]([])
+clear_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Resource" id="Resource_vn"]
+resource_name = "Visual Novel"
+script = ExtResource("1_gi")
+title = "Visual Novel"
+thumbnail = ExtResource("t_vn")
+authors = "Abigail Greenberg, Violet Liang, Brian Wu, Yuanyu Xiang"
+pck_file = "res://PCKs/visual-novel.pck"
+main_scene = "res://main.tscn"
+globals = Array[String](["res://Game.gd"])
+clear_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Resource" id="Resource_pet"]
+resource_name = "The Pet"
+script = ExtResource("1_gi")
+title = "The Pet"
+thumbnail = ExtResource("t_pet")
+authors = "Daibaihe Jiang, Junxin Jiang, Alice Li, Junseok Lim"
+pck_file = "res://PCKs/the-pet.pck"
+main_scene = "res://main scene.tscn"
+globals = Array[String](["res://global.gd"])
+clear_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Resource" id="Resource_trolley"]
+resource_name = "Trolley Problem"
+script = ExtResource("1_gi")
+title = "Trolley Problem"
+thumbnail = ExtResource("t_trolley")
+authors = "Junxin Jiang, Yuanyu Xiang, Cong Zhao"
+pck_file = "res://PCKs/trolley-problem.pck"
+main_scene = "res://main.tscn"
+globals = Array[String](["res://MusicPlayer.tscn"])
+clear_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Resource" id="Resource_momentum"]
+resource_name = "Momentum"
+script = ExtResource("1_gi")
+title = "Momentum"
+thumbnail = ExtResource("t_momentum")
+authors = "Junseok Lim"
+pck_file = "res://PCKs/momentum.pck"
+main_scene = "res://main_menu.tscn"
+globals = Array[String]([])
+clear_color = Color(0, 0, 0, 1)
+
+[resource]
+script = ExtResource("2_cp")
+date = "Fall 2025"
+projects = Array[ExtResource("1_gi")]([SubResource("Resource_horror"), SubResource("Resource_blooock"), SubResource("Resource_vn"), SubResource("Resource_pet"), SubResource("Resource_trolley"), SubResource("Resource_momentum")])

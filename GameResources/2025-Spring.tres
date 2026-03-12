@@ -1,0 +1,93 @@
+[gd_resource type="Resource" script_class="ClassProjects" load_steps=18 format=3]
+
+[ext_resource type="Script" path="res://Classes/GameInfo.gd" id="1_gi"]
+[ext_resource type="Script" path="res://Classes/ClassProjects.gd" id="2_cp"]
+[ext_resource type="Texture2D" path="res://Assets/Thumbnails/group-chef.png" id="t_chef"]
+[ext_resource type="Texture2D" path="res://Assets/Thumbnails/breadknight.png" id="t_bk"]
+[ext_resource type="Texture2D" path="res://Assets/Thumbnails/2d-game.png" id="t_2d"]
+[ext_resource type="Texture2D" path="res://Assets/Thumbnails/parsec.png" id="t_parsec"]
+[ext_resource type="Texture2D" path="res://Assets/Thumbnails/breadknight-capstone.png" id="t_bkcap"]
+[ext_resource type="Texture2D" path="res://Assets/Thumbnails/tao-capstone.png" id="t_tao"]
+[ext_resource type="Texture2D" path="res://Assets/Thumbnails/mochi.png" id="t_mochi"]
+
+[sub_resource type="Resource" id="Resource_chef"]
+resource_name = "Group Chef"
+script = ExtResource("1_gi")
+title = "Group Chef"
+thumbnail = ExtResource("t_chef")
+authors = "Liyang Chen, Lizhang Ji, Jiayu Zhang"
+pck_file = "res://PCKs/group-chef.pck"
+main_scene = "res://Scene/main.tscn"
+globals = Array[String]([])
+clear_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Resource" id="Resource_bk"]
+resource_name = "Breadknight"
+script = ExtResource("1_gi")
+title = "Breadknight"
+thumbnail = ExtResource("t_bk")
+authors = "James (Dekai) Jin, Zixi Zhang"
+pck_file = "res://PCKs/breadknight.pck"
+main_scene = "res://Scene Tscn/menu.tscn"
+globals = Array[String](["res://Scene Tscn/music.tscn"])
+clear_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Resource" id="Resource_2d"]
+resource_name = "2D Game Project"
+script = ExtResource("1_gi")
+title = "2D Game Project"
+thumbnail = ExtResource("t_2d")
+authors = "Takumi Segi, Ruiqi Li, Yuanyue Tao"
+pck_file = "res://PCKs/2d-game.pck"
+main_scene = "res://Scene/Begin screen.tscn"
+globals = Array[String](["res://Scene/8bit main theme.tscn", "res://Scene/UnderwaterSFX.tscn"])
+clear_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Resource" id="Resource_parsec"]
+resource_name = "Parsec"
+script = ExtResource("1_gi")
+title = "Parsec"
+thumbnail = ExtResource("t_parsec")
+authors = "Takumi Segi"
+pck_file = "res://PCKs/parsec.pck"
+main_scene = "res://Scenes/Start_screen.tscn"
+globals = Array[String]([])
+clear_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Resource" id="Resource_bkcap"]
+resource_name = "Breadknight Capstone"
+script = ExtResource("1_gi")
+title = "Breadknight Capstone"
+thumbnail = ExtResource("t_bkcap")
+authors = "James (Dekai) Jin"
+pck_file = "res://PCKs/breadknight-capstone.pck"
+main_scene = "res://Scene Tscn/menu.tscn"
+globals = Array[String](["res://Scene Tscn/music.tscn"])
+clear_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Resource" id="Resource_tao"]
+resource_name = "Tao Capstone"
+script = ExtResource("1_gi")
+title = "Tao Capstone"
+thumbnail = ExtResource("t_tao")
+authors = "Yuanyue Tao"
+pck_file = "res://PCKs/tao-capstone.pck"
+main_scene = "res://scene/title_screen.tscn"
+globals = Array[String]([])
+clear_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Resource" id="Resource_mochi"]
+resource_name = "Mochi Adventure"
+script = ExtResource("1_gi")
+title = "Mochi Adventure"
+thumbnail = ExtResource("t_mochi")
+authors = "Jiayu Zhang"
+pck_file = "res://PCKs/mochi.pck"
+main_scene = "res://Scene/Start/Start.tscn"
+globals = Array[String]([])
+clear_color = Color(0, 0, 0, 1)
+
+[resource]
+script = ExtResource("2_cp")
+date = "Spring 2025"
+projects = Array[ExtResource("1_gi")]([SubResource("Resource_chef"), SubResource("Resource_bk"), SubResource("Resource_2d"), SubResource("Resource_parsec"), SubResource("Resource_bkcap"), SubResource("Resource_tao"), SubResource("Resource_mochi")])
